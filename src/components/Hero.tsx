@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Layers, Zap, ArrowRight, ArrowUpRight, ShoppingBag, Sparkles, Shield, Clock } from "lucide-react";
+import { Layers, Zap, ArrowUpRight, ShoppingBag, Sparkles, Shield, Clock, TrendingUp, Cpu } from "lucide-react";
 import styles from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -140,8 +140,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* --- Mobile & Tablet Hero (Modern, Fast-Loading & Clean) --- */}
+      {/* --- Mobile & Tablet Hero (Modern, Faded Grid & 3D Floating Elements) --- */}
       <div className={styles.mobileHero}>
+        {/* Half-Fading Grid Background Layer */}
+        <div className={styles.mobileGridOverlay} />
+        <div className={styles.mobileGlowOrb} />
+
         <div className={styles.mobileHeroContainer}>
           {/* Top Live Status Pill */}
           <div className={styles.mobileStatusPill}>
@@ -149,16 +153,34 @@ export default function Hero() {
             <span>Full-Stack Growth Collective</span>
           </div>
 
-          {/* Bold Editorial Headline */}
-          <h1 className={styles.mobileTitle}>
-            <span className="editorial-outline">SCALING INDIA'S</span> <br />
-            <span className="editorial-solid">TOP MARKETPLACE</span> <br />
-            <span className={styles.glowText}>& DTC BRANDS.</span>
-          </h1>
+          {/* Headline with Hanging 3D Badges */}
+          <div className={styles.titleWrapper}>
+            {/* Top-Right 3D Hanging Badge */}
+            <div className={styles.floatingBadgeTop}>
+              <div className={styles.floatingBadgeInner}>
+                <Sparkles size={13} className={styles.sparkleIcon} />
+                <span>3D CGI & Motion</span>
+              </div>
+            </div>
+
+            <h1 className={styles.mobileTitle}>
+              <span className="editorial-outline">SCALING INDIA'S</span> <br />
+              <span className="editorial-solid">TOP MARKETPLACE</span> <br />
+              <span className={styles.glowText}>& DTC BRANDS.</span>
+            </h1>
+
+            {/* Bottom-Left 3D Hanging Badge */}
+            <div className={styles.floatingBadgeBottom}>
+              <div className={styles.floatingBadgeInner}>
+                <TrendingUp size={13} className={styles.growthIcon} />
+                <span>Algorithmic Scale</span>
+              </div>
+            </div>
+          </div>
 
           {/* Subtitle */}
           <p className={styles.mobileSubtitle}>
-            From algorithmic Amazon & Flipkart dominance to custom high-converting storefronts and 3D motion creatives. We engineer predictable revenue growth.
+            From algorithmic Amazon & Flipkart dominance to custom high-converting storefronts and 3D motion creatives.
           </p>
 
           {/* Mobile CTA Buttons */}

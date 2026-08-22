@@ -20,7 +20,7 @@ export default function InfiniteLogos() {
     <section className={styles.section}>
       <div className={styles.networkHeader}>
         <h2 className={styles.title}>
-          <span style={{ color: "var(--text-color)" }}>✦ Our Network</span>
+          <span style={{ color: "var(--text-color)" }}>Our Network</span>
         </h2>
         <h3 className={styles.subtitle}>Growing Brands Across Top Marketplaces</h3>
         <p className={styles.description}>
