@@ -1,0 +1,143 @@
+.section {
+  padding: 8rem 2rem;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--card-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Editorial Manifesto Title (Matching Image 2 Reference) --- */
+.manifestoWrapper {
+  margin-bottom: 2.5rem;
+}
+
+.manifestoTitle {
+  font-size: clamp(2.5rem, 5.5vw, 5.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.glowText {
+  color: var(--primary-maroon) !important;
+  text-shadow: 0 0 40px rgba(128, 0, 0, 0.25);
+}
+
+:global(.dark) .glowText {
+  color: #ff4d4d !important;
+  text-shadow: 0 0 45px rgba(255, 77, 77, 0.4);
+}
+
+.paragraph {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  color: var(--text-color);
+  opacity: 0.75;
+  max-width: 820px;
+  line-height: 1.7;
+  margin: 0 auto 4rem auto;
+}
+
+/* --- Impact Pillars Grid --- */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 1rem;
+}
+
+.statCard {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 28px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+:global(.dark) .statCard {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.statCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-maroon);
+  box-shadow: 0 20px 40px rgba(128, 0, 0, 0.08);
+}
+
+:global(.dark) .statCard:hover {
+  border-color: rgba(255, 77, 77, 0.3);
+  box-shadow: 0 20px 40px rgba(128, 0, 0, 0.3);
+}
+
+.pillarIconWrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(128, 0, 0, 0.08);
+  color: var(--primary-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+:global(.dark) .pillarIconWrapper {
+  background: rgba(255, 77, 77, 0.12);
+  color: #ff6b6b;
+}
+
+.statCard:hover .pillarIconWrapper {
+  transform: scale(1.1);
+}
+
+.statNumber {
+  font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 1.5rem;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
