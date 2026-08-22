@@ -9,6 +9,11 @@ import CustomCursor from "@/components/CustomCursor";
 export const metadata: Metadata = {
   title: "EZennith - Elevating Your Digital Presence",
   description: "Premium services for E-commerce, Web Development, Content Creation, and Digital Marketing.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
