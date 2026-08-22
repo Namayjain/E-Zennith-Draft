@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Layers, Zap } from "lucide-react";
+import { Layers, Zap, ArrowRight, ArrowUpRight, ShoppingBag, Sparkles, Shield, Clock } from "lucide-react";
 import styles from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +19,9 @@ export default function Hero() {
   const [hudOpacity, setHudOpacity] = useState(1);
 
   useEffect(() => {
-    // Reset scroll to top on homepage entry
+    // Only run GSAP canvas scroll animation on desktop screens (>900px)
+    if (window.innerWidth <= 900) return;
+
     window.scrollTo(0, 0);
 
     const canvas = canvasRef.current;
@@ -43,7 +46,7 @@ export default function Hero() {
       }
     }
 
-    // Preload all 240 frames
+    // Preload frames on desktop
     for (let i = 0; i < frameCount; i++) {
       const img = new Image();
       img.src = currentFrame(i);
@@ -55,7 +58,6 @@ export default function Hero() {
       images.push(img);
     }
 
-    // Initial render of frame 0 if already cached
     renderFrame(0);
 
     const ctx = gsap.context(() => {
@@ -86,52 +88,136 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className={styles.heroTrack} ref={trackRef}>
-      <div className={styles.stickyContainer}>
-        <canvas ref={canvasRef} className={styles.canvas} />
+    <>
+      {/* --- Desktop Hero (300vh Interactive 3D Scroll Canvas) --- */}
+      <div className={styles.desktopHero}>
+        <div className={styles.heroTrack} ref={trackRef}>
+          <div className={styles.stickyContainer}>
+            <canvas ref={canvasRef} className={styles.canvas} />
 
-        {/* Luxury Hero HUD Overlay (fades out as you scroll) */}
-        <div className={styles.hudOverlay} style={{ opacity: hudOpacity }}>
-          {/* Top Status */}
-          <div className={styles.topStatusRow}>
-            <div className={styles.statusPill}>
-              <span className={styles.pulseDot} />
-              <span>Full-Stack eCommerce & Growth Collective</span>
-            </div>
-          </div>
+            {/* Luxury Hero HUD Overlay (fades out as you scroll) */}
+            <div className={styles.hudOverlay} style={{ opacity: hudOpacity }}>
+              {/* Top Status */}
+              <div className={styles.topStatusRow}>
+                <div className={styles.statusPill}>
+                  <span className={styles.pulseDot} />
+                  <span>Full-Stack eCommerce & Growth Collective</span>
+                </div>
+              </div>
 
-          {/* Floating Value Badges */}
-          <div className={styles.statsRow}>
-            <div className={styles.statCard}>
-              <div className={styles.statIconWrapper}>
-                <Layers size={18} />
-              </div>
-              <div className={styles.statText}>
-                <span className={styles.statValue}>End-to-End Scale</span>
-                <span className={styles.statLabel}>Strategy, Creative & Tech</span>
-              </div>
-            </div>
+              {/* Floating Value Badges */}
+              <div className={styles.statsRow}>
+                <div className={styles.statCard}>
+                  <div className={styles.statIconWrapper}>
+                    <Layers size={18} />
+                  </div>
+                  <div className={styles.statText}>
+                    <span className={styles.statValue}>End-to-End Scale</span>
+                    <span className={styles.statLabel}>Strategy, Creative & Tech</span>
+                  </div>
+                </div>
 
-            <div className={styles.statCard}>
-              <div className={styles.statIconWrapper}>
-                <Zap size={18} />
+                <div className={styles.statCard}>
+                  <div className={styles.statIconWrapper}>
+                    <Zap size={18} />
+                  </div>
+                  <div className={styles.statText}>
+                    <span className={styles.statValue}>Omnichannel Growth</span>
+                    <span className={styles.statLabel}>Amazon, Flipkart & DTC</span>
+                  </div>
+                </div>
               </div>
-              <div className={styles.statText}>
-                <span className={styles.statValue}>Omnichannel Growth</span>
-                <span className={styles.statLabel}>Amazon, Flipkart & DTC</span>
-              </div>
-            </div>
-          </div>
 
-          {/* Bottom Scroll Prompt */}
-          <div className={styles.bottomPromptRow}>
-            <div className={styles.mouseIndicator}>
-              <div className={styles.mouseWheel} />
+              {/* Bottom Scroll Prompt */}
+              <div className={styles.bottomPromptRow}>
+                <div className={styles.mouseIndicator}>
+                  <div className={styles.mouseWheel} />
+                </div>
+                <span className={styles.scrollLabel}>Scroll to Explore</span>
+              </div>
             </div>
-            <span className={styles.scrollLabel}>Scroll to Explore</span>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* --- Mobile & Tablet Hero (Modern, Fast-Loading & Clean) --- */}
+      <div className={styles.mobileHero}>
+        <div className={styles.mobileHeroContainer}>
+          {/* Top Live Status Pill */}
+          <div className={styles.mobileStatusPill}>
+            <span className={styles.pulseDot} />
+            <span>Full-Stack Growth Collective</span>
+          </div>
+
+          {/* Bold Editorial Headline */}
+          <h1 className={styles.mobileTitle}>
+            <span className="editorial-outline">SCALING INDIA'S</span> <br />
+            <span className="editorial-solid">TOP MARKETPLACE</span> <br />
+            <span className={styles.glowText}>& DTC BRANDS.</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className={styles.mobileSubtitle}>
+            From algorithmic Amazon & Flipkart dominance to custom high-converting storefronts and 3D motion creatives. We engineer predictable revenue growth.
+          </p>
+
+          {/* Mobile CTA Buttons */}
+          <div className={styles.mobileCtaRow}>
+            <Link href="/contact" className={styles.mobilePrimaryCta}>
+              <span>Book Growth Audit</span>
+              <ArrowUpRight size={18} />
+            </Link>
+            <Link href="/#what-we-do" className={styles.mobileSecondaryCta}>
+              <span>Explore Services</span>
+            </Link>
+          </div>
+
+          {/* Quick Value Cards */}
+          <div className={styles.mobileCardsList}>
+            <div className={styles.mobileFeatureCard}>
+              <div className={styles.featureIconCircle}>
+                <ShoppingBag size={18} />
+              </div>
+              <div className={styles.featureCardText}>
+                <span className={styles.featureCardTitle}>Amazon & Flipkart Scaling</span>
+                <span className={styles.featureCardDesc}>Algorithmic SEO, cataloging & aggressive PPC</span>
+              </div>
+            </div>
+
+            <div className={styles.mobileFeatureCard}>
+              <div className={styles.featureIconCircle}>
+                <Layers size={18} />
+              </div>
+              <div className={styles.featureCardText}>
+                <span className={styles.featureCardTitle}>Custom DTC Storefronts</span>
+                <span className={styles.featureCardDesc}>Shopify Plus & bespoke UI/UX architecture</span>
+              </div>
+            </div>
+
+            <div className={styles.mobileFeatureCard}>
+              <div className={styles.featureIconCircle}>
+                <Sparkles size={18} />
+              </div>
+              <div className={styles.featureCardText}>
+                <span className={styles.featureCardTitle}>3D CGI & Motion Creatives</span>
+                <span className={styles.featureCardDesc}>Hyper-realistic renders & scroll-stopping ads</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Guarantee Bar */}
+          <div className={styles.mobileTrustRow}>
+            <div className={styles.trustPill}>
+              <Shield size={13} />
+              <span>100% NDA Protected</span>
+            </div>
+            <div className={styles.trustPill}>
+              <Clock size={13} />
+              <span>24hr Audit Turnaround</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
