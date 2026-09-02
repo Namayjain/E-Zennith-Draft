@@ -1,0 +1,106 @@
+.mobile3dContainer {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.webglCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* Floating International Badges */
+.floatingBadge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+:global(.dark) .floatingBadge {
+  background: rgba(20, 20, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.badgeGlobal {
+  top: 10px;
+  left: 0;
+}
+
+.badgeGmv {
+  top: 25px;
+  right: 0;
+}
+
+.badgeRoas {
+  bottom: 25px;
+  right: 8px;
+}
+
+.badgeActive {
+  transform: translateY(-4px) scale(1.04);
+  border-color: var(--primary-maroon);
+  box-shadow: 0 10px 28px rgba(128, 0, 0, 0.18);
+}
+
+:global(.dark) .badgeActive {
+  border-color: #ff4d4d;
+  box-shadow: 0 10px 28px rgba(255, 77, 77, 0.3);
+}
+
+.badgeIconBox {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(128, 0, 0, 0.08);
+  color: var(--primary-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.dark) .badgeIconBox {
+  background: rgba(255, 77, 77, 0.15);
+  color: #ff6b6b;
+}
+
+.badgeContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.badgeTitle {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--text-color);
+  letter-spacing: -0.01em;
+}
+
+.badgeSub {
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--text-color);
+  opacity: 0.65;
+}

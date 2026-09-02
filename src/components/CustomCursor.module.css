@@ -1,32 +1,106 @@
-.cursor {
+/* Inner Precision Center Point */
+.cursorDot {
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  mix-blend-mode: difference;
-}
-
-.cursorInner {
-  width: 100%;
-  height: 100%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -3px;
   border-radius: 50%;
   background-color: var(--primary-maroon);
-  transition: all 0.2s ease;
-  opacity: 0.8;
+  pointer-events: none !important;
+  z-index: 99999;
+  opacity: 0;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              opacity 0.25s ease,
+              transform 0.2s ease;
+  will-change: transform;
 }
 
-.cursorInner.hovering {
-  background-color: transparent;
-  border: 2px solid var(--primary-maroon);
-  opacity: 1;
+:global(.dark) .cursorDot {
+  background-color: #ff4d4d;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.8);
 }
 
-@media (max-width: 1024px) {
-  .cursor {
-    display: none;
+.dotHover {
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  margin-left: -4px;
+}
+
+.dotClick {
+  transform: scale(0.6) !important;
+}
+
+/* Outer Magnetic Trailing Ring */
+.cursorRing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -16px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(128, 0, 0, 0.45);
+  background-color: rgba(128, 0, 0, 0.04);
+  pointer-events: none !important;
+  z-index: 99998;
+  opacity: 0;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              box-shadow 0.25s ease,
+              opacity 0.25s ease;
+  will-change: transform;
+}
+
+:global(.dark) .cursorRing {
+  border-color: rgba(255, 77, 77, 0.5);
+  background-color: rgba(255, 77, 77, 0.06);
+  box-shadow: 0 0 14px rgba(255, 77, 77, 0.2);
+}
+
+/* Hover State on Links / Buttons */
+.ringHover {
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -24px;
+  border-color: rgba(128, 0, 0, 0.75);
+  background-color: rgba(128, 0, 0, 0.08);
+}
+
+:global(.dark) .ringHover {
+  border-color: rgba(255, 77, 77, 0.9);
+  background-color: rgba(255, 77, 77, 0.15);
+  box-shadow: 0 0 20px rgba(255, 77, 77, 0.35);
+}
+
+/* Tactile Click State */
+.ringClick {
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  margin-left: -11px;
+  border-color: var(--primary-maroon);
+}
+
+:global(.dark) .ringClick {
+  border-color: #ff6b6b;
+}
+
+/* Completely Disable on Touch / Mobile Devices */
+@media (hover: none) and (pointer: coarse), (max-width: 1024px) {
+  .cursorDot,
+  .cursorRing {
+    display: none !important;
   }
 }

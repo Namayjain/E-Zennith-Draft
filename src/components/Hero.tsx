@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Layers, Zap, ArrowUpRight, ShoppingBag, Sparkles, Shield, Clock, TrendingUp, Cpu } from "lucide-react";
 import styles from "./Hero.module.css";
+import HeroMobile3D from "./HeroMobile3D";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,6 +183,9 @@ export default function Hero() {
           <p className={styles.mobileSubtitle}>
             From algorithmic Amazon & Flipkart dominance to custom high-converting storefronts and 3D motion creatives.
           </p>
+
+          {/* 3D Interactive WebGL Holographic Tech Core */}
+          <HeroMobile3D />
 
           {/* Mobile CTA Buttons */}
           <div className={styles.mobileCtaRow}>

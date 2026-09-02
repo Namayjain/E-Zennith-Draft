@@ -49,6 +49,8 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .fadeLeft, .fadeRight {
@@ -79,15 +81,10 @@
   will-change: transform;
 }
 
-/* Pause on hover only on desktop pointer devices to prevent mobile touch freezing */
 @media (hover: hover) and (pointer: fine) {
   .track:hover {
     animation-play-state: paused;
   }
-}
-
-.trackPaused {
-  animation-play-state: paused !important;
 }
 
 @keyframes scroll {
@@ -106,37 +103,39 @@
   padding: 0.5rem; 
 }
 
-/* Refined, Seamless Brand Logo Card */
+/* Solid Pure White Card for Maximum Contrast and Clear Logo Visibility */
 .logoBox {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.85rem 1.75rem;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 0.85rem 1.85rem;
+  background: #ffffff !important; /* Pure solid white background for high contrast */
+  border: 1px solid rgba(0, 0, 0, 0.09) !important;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   min-width: 180px;
   height: 85px;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 :global(.dark) .logoBox {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.07);
+  background: #ffffff !important; /* Retain solid white in dark theme for crisp PNG text */
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55), 0 0 16px rgba(255, 255, 255, 0.05);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .logoBox:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-    border-color: rgba(128, 0, 0, 0.25);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    border-color: rgba(128, 0, 0, 0.35) !important;
   }
 
   :global(.dark) .logoBox:hover {
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
-    border-color: rgba(255, 77, 77, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 77, 77, 0.2);
+    border-color: rgba(255, 77, 77, 0.4) !important;
   }
 }
 
@@ -150,9 +149,9 @@
   }
 
   .logoBox {
-    min-width: 150px;
-    height: 75px;
-    padding: 0.65rem 1.25rem;
+    min-width: 145px;
+    height: 72px;
+    padding: 0.6rem 1.2rem;
   }
 
   .track {

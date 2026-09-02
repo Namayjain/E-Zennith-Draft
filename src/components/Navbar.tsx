@@ -37,6 +37,7 @@ const menuItems: MenuItem[] = [
   { title: "Home", link: "/" },
   {
     title: "Services",
+    link: "/services",
     subItems: [
       {
         title: "E-commerce",
@@ -174,7 +175,11 @@ export default function Navbar() {
                 }}
               >
                 <div>
-                  {item.link ? (
+                  {item.link && item.subItems ? (
+                    <Link href={item.link} className={styles.menuLink}>
+                      {item.title} <ChevronDown size={14} />
+                    </Link>
+                  ) : item.link ? (
                     <Link href={item.link} className={styles.menuLink}>
                       {item.title}
                     </Link>
@@ -340,6 +345,14 @@ export default function Navbar() {
                   onClick={(e) => handleMobileNav(e, "/")}
                 >
                   Home
+                </a>
+
+                <a
+                  href="/services"
+                  className={styles.mobileNavLink}
+                  onClick={(e) => handleMobileNav(e, "/services")}
+                >
+                  All Services (Hub) ↗
                 </a>
 
                 {/* E-Commerce Section */}

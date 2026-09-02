@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./InfiniteLogos.module.css";
 
@@ -15,40 +14,6 @@ const logos = [
 
 export default function InfiniteLogos() {
   const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
-  const [isPaused, setIsPaused] = useState(false);
-  const pauseTimerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const handleTouchStart = () => {
-    setIsPaused(true);
-    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-  };
-
-  const handleTouchEnd = () => {
-    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-    // Smoothly restart scrolling after user releases touch
-    pauseTimerRef.current = setTimeout(() => {
-      setIsPaused(false);
-    }, 400);
-  };
-
-  useEffect(() => {
-    // Safety auto-resume: Scrolling the page, moving touch, or clicking anywhere immediately restarts the carousel
-    const handleGlobalResume = () => {
-      setIsPaused(false);
-      if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-    };
-
-    window.addEventListener("scroll", handleGlobalResume, { passive: true });
-    window.addEventListener("touchmove", handleGlobalResume, { passive: true });
-    window.addEventListener("click", handleGlobalResume, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleGlobalResume);
-      window.removeEventListener("touchmove", handleGlobalResume);
-      window.removeEventListener("click", handleGlobalResume);
-      if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-    };
-  }, []);
 
   return (
     <section className={styles.section}>
@@ -62,16 +27,11 @@ export default function InfiniteLogos() {
         </p>
       </div>
 
-      <div 
-        className={styles.container}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onTouchCancel={handleTouchEnd}
-      >
+      <div className={styles.container}>
         <div className={styles.fadeLeft}></div>
         <div className={styles.fadeRight}></div>
         
-        <div className={`${styles.track} ${isPaused ? styles.trackPaused : ""}`}>
+        <div className={styles.track}>
           {duplicatedLogos.map((logo, index) => (
             <div key={index} className={styles.logoItem}>
               <div className={styles.logoBox}>
@@ -80,8 +40,9 @@ export default function InfiniteLogos() {
                   alt={`${logo.name} logo`} 
                   width={130} 
                   height={55} 
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: 'contain', userSelect: 'none', pointerEvents: 'none' }}
                   priority={index < 6}
+                  draggable={false}
                 />
               </div>
             </div>
