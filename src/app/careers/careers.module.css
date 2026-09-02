@@ -1,0 +1,757 @@
+.main {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding-top: 6rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  padding: 4.5rem 0 3.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.topPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(128, 0, 0, 0.08);
+  border: 1px solid rgba(128, 0, 0, 0.15);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-maroon);
+  margin-bottom: 1.5rem;
+}
+
+:global(.dark) .topPill {
+  background: rgba(255, 77, 77, 0.12);
+  border-color: rgba(255, 77, 77, 0.25);
+  color: #ff6b6b;
+}
+
+.sparkleIcon {
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .sparkleIcon {
+  color: #ff6b6b;
+}
+
+.heroTitle {
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-color);
+  opacity: 0.75;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  line-height: 1.65;
+}
+
+/* Perks Grid */
+.perksGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.perkCard {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+:global(.dark) .perkCard {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.perkCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-maroon);
+}
+
+:global(.dark) .perkCard:hover {
+  border-color: rgba(255, 77, 77, 0.3);
+}
+
+.perkIconBox {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(128, 0, 0, 0.08);
+  color: var(--primary-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+:global(.dark) .perkIconBox {
+  background: rgba(255, 77, 77, 0.12);
+  color: #ff6b6b;
+}
+
+.perkTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+.perkDesc {
+  font-size: 0.82rem;
+  color: var(--text-color);
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+/* --- Roles Section --- */
+.rolesSection {
+  padding: 4rem 0 6rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+:global(.dark) .rolesSection {
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionPill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-maroon);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+:global(.dark) .sectionPill {
+  color: #ff6b6b;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.sectionSub {
+  font-size: 1rem;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Filter Tabs */
+.filterTabsWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.filterTabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 50px;
+}
+
+:global(.dark) .filterTabs {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.filterBtn {
+  padding: 0.55rem 1.15rem;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-color);
+  opacity: 0.7;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filterBtn:hover {
+  opacity: 1;
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .filterBtn:hover {
+  color: #ff6b6b;
+}
+
+.filterBtnActive {
+  background: var(--primary-maroon) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 14px rgba(128, 0, 0, 0.25);
+}
+
+:global(.dark) .filterBtnActive {
+  background: #ff4d4d !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 14px rgba(255, 77, 77, 0.35);
+}
+
+/* Jobs List */
+.jobsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.jobCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2.25rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 22px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:global(.dark) .jobCard {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.jobCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-maroon);
+  box-shadow: 0 16px 36px rgba(128, 0, 0, 0.06);
+}
+
+:global(.dark) .jobCard:hover {
+  border-color: rgba(255, 77, 77, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.jobMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.jobHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.jobBadgeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deptBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+  background: rgba(128, 0, 0, 0.08);
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .deptBadge {
+  background: rgba(255, 77, 77, 0.12);
+  color: #ff6b6b;
+}
+
+.hotBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+  background: rgba(230, 126, 34, 0.12);
+  color: #e67e22;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-color);
+  opacity: 0.65;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.jobTitle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.jobSummary {
+  font-size: 0.92rem;
+  color: var(--text-color);
+  opacity: 0.75;
+  line-height: 1.6;
+  max-width: 850px;
+}
+
+.skillsChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.skillChip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+:global(.dark) .skillChip {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.applyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 12px;
+  background: var(--primary-maroon);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+:global(.dark) .applyBtn {
+  background: #ffffff;
+  color: #000000;
+}
+
+.applyBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(128, 0, 0, 0.25);
+}
+
+/* Speculative Card */
+.speculativeCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.25rem 2.5rem;
+  background: rgba(128, 0, 0, 0.04);
+  border: 1px dashed rgba(128, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+:global(.dark) .speculativeCard {
+  background: rgba(255, 77, 77, 0.05);
+  border-color: rgba(255, 77, 77, 0.25);
+}
+
+.speculativeTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.speculativeText {
+  font-size: 0.92rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  line-height: 1.55;
+  max-width: 680px;
+}
+
+.pitchBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--primary-maroon);
+  border: 1px solid var(--primary-maroon);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+:global(.dark) .pitchBtn {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.pitchBtn:hover {
+  background: var(--primary-maroon);
+  color: #ffffff;
+}
+
+:global(.dark) .pitchBtn:hover {
+  background: #ff4d4d;
+  color: #000000;
+}
+
+/* --- Modal Overlay --- */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  padding: 1.5rem;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-color);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  animation: modalIn 0.25s ease-out;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+:global(.dark) .closeBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.closeBtn:hover {
+  transform: rotate(90deg);
+  background: rgba(128, 0, 0, 0.1);
+  color: var(--primary-maroon);
+}
+
+.modalHeader {
+  margin-bottom: 1.75rem;
+  padding-right: 2rem;
+}
+
+.modalSubtitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .modalSubtitle {
+  color: #ff6b6b;
+}
+
+.modalRoleTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-top: 0.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.modalMeta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  opacity: 0.65;
+}
+
+.applicationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fieldIcon {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-color);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.textareaIcon {
+  top: 1rem;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+:global(.dark) .input,
+:global(.dark) .select,
+:global(.dark) .textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.select {
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-maroon);
+  background: transparent;
+  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.08);
+}
+
+:global(.dark) .input:focus,
+:global(.dark) .select:focus,
+:global(.dark) .textarea:focus {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.15);
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  background: var(--primary-maroon);
+  color: #ffffff;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+:global(.dark) .submitBtn {
+  background: #ffffff;
+  color: #000000;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(128, 0, 0, 0.25);
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success Modal */
+.modalSuccess {
+  text-align: center;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.successIconBox {
+  color: #2ecc71;
+  margin-bottom: 0.5rem;
+}
+
+.successTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.successText {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  opacity: 0.75;
+  line-height: 1.6;
+  max-width: 450px;
+  margin-bottom: 1rem;
+}
+
+.primaryBtn {
+  padding: 0.75rem 2rem;
+  background: var(--primary-maroon);
+  color: #ffffff;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+:global(.dark) .primaryBtn {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .perksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jobCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .jobActionCol {
+    width: 100%;
+  }
+
+  .applyBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .perksGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .speculativeCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pitchBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .modalContent {
+    padding: 1.75rem;
+  }
+}

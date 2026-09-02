@@ -63,6 +63,7 @@ export default function Footer() {
               <Link href="/#what-we-do">What We Do?</Link>
               <Link href="/#portfolio">Portfolio & Case Studies</Link>
               <Link href="/#testimonials">Client Testimonials</Link>
+              <Link href="/careers">Careers (We're Hiring)</Link>
               <Link href="/#faq">Frequently Asked Questions</Link>
               <Link href="/contact">Book Free Consultation</Link>
             </div>
@@ -90,6 +91,8 @@ export default function Footer() {
             <Link href="/privacy-policy">Privacy</Link>
             <span className={styles.dotSeparator}>•</span>
             <Link href="/terms-and-conditions">Terms</Link>
+            <span className={styles.dotSeparator}>•</span>
+            <Link href="/careers">Careers</Link>
             <span className={styles.dotSeparator}>•</span>
             <Link href="/contact">Contact</Link>
           </div>
