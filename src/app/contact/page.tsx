@@ -29,8 +29,8 @@ export default function ContactPage() {
               </div>
               <div className={styles.channelText}>
                 <span className={styles.channelLabel}>Call or WhatsApp</span>
-                <a href="tel:+917488407737" className={styles.channelValue}>
-                  +91 7488407737
+                <a href="tel:+918797787778" className={styles.channelValue}>
+                  +91 8797787778
                 </a>
               </div>
             </div>
@@ -41,8 +41,8 @@ export default function ContactPage() {
               </div>
               <div className={styles.channelText}>
                 <span className={styles.channelLabel}>Official Inquiries</span>
-                <a href="mailto:contact@ezennith.com" className={styles.channelValue}>
-                  contact@ezennith.com
+                <a href="mailto:Team.ezennith@gmail.com" className={styles.channelValue}>
+                  Team.ezennith@gmail.com
                 </a>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function ContactPage() {
               </div>
               <div className={styles.channelText}>
                 <span className={styles.channelLabel}>Direct Strategist Chat</span>
-                <a href="https://wa.me/917488407737" target="_blank" rel="noopener noreferrer" className={styles.channelValue}>
+                <a href="https://wa.me/918797787778" target="_blank" rel="noopener noreferrer" className={styles.channelValue}>
                   Chat on WhatsApp ↗
                 </a>
               </div>

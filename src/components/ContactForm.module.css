@@ -270,6 +270,29 @@
   opacity: 0.65;
 }
 
+.trustItemEnlarged {
+  opacity: 1;
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .trustItemEnlarged {
+  color: #ff6b6b;
+}
+
+.ndaIcon {
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .ndaIcon {
+  color: #ff6b6b;
+}
+
+.ndaText {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
 /* Success State */
 .successState {
   text-align: center;

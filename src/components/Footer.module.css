@@ -166,12 +166,33 @@
 .trustBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.82rem;
-  font-weight: 700;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(128, 0, 0, 0.06);
+  border: 1px solid rgba(128, 0, 0, 0.15);
+  margin-top: 0.75rem;
+  width: fit-content;
+}
+
+:global(.dark) .trustBadge {
+  background: rgba(255, 77, 77, 0.08);
+  border-color: rgba(255, 77, 77, 0.2);
+}
+
+.trustShieldIcon {
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .trustShieldIcon {
+  color: #ff6b6b;
+}
+
+.trustBadgeText {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   color: var(--text-color);
-  opacity: 0.6;
-  margin-top: 0.5rem;
 }
 
 /* Bottom Section */

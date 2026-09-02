@@ -108,9 +108,9 @@ const menuItems: MenuItem[] = [
       },
     ],
   },
-  { title: "What We Do", link: "/#what-we-do" },
+  { title: "What We Do?", link: "/#what-we-do" },
   { title: "Portfolio", link: "/#portfolio" },
-  { title: "About", link: "/about" },
+  { title: "Who We Are?", link: "/about" },
 ];
 
 export default function Navbar() {
@@ -285,7 +285,7 @@ export default function Navbar() {
             </button>
             
             <Link href="/contact" className={styles.ctaButton}>
-              <span>Book Audit</span>
+              <span>Book Consultation</span>
               <ArrowUpRight size={16} />
             </Link>
 
@@ -352,7 +352,7 @@ export default function Navbar() {
                       )
                     }
                   >
-                    <span>Amazon & Flipkart</span>
+                    <span>E-Commerce</span>
                     {mobileExpandedCat === "ecommerce" ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </div>
 
@@ -513,7 +513,7 @@ export default function Navbar() {
                   className={styles.mobileNavLink}
                   onClick={(e) => handleMobileNav(e, "/#what-we-do")}
                 >
-                  What We Do
+                  What We Do?
                 </a>
 
                 <a
@@ -529,7 +529,7 @@ export default function Navbar() {
                   className={styles.mobileNavLink}
                   onClick={(e) => handleMobileNav(e, "/about")}
                 >
-                  About Us
+                  Who We Are?
                 </a>
 
                 <a
@@ -548,7 +548,7 @@ export default function Navbar() {
                   className={styles.mobileDrawerCta}
                   onClick={(e) => handleMobileNav(e, "/contact")}
                 >
-                  <span>Book Free Growth Audit</span>
+                  <span>Book Free Consultation</span>
                   <ArrowUpRight size={18} />
                 </a>
               </div>

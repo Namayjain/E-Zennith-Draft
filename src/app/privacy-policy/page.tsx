@@ -37,8 +37,8 @@ export default function PrivacyPolicyPage() {
               We collect information to provide superior growth consulting and e-commerce optimization services. This includes:
             </p>
             <ul>
-              <li><strong>Contact Information:</strong> Name, work email address, phone/WhatsApp number, and company name provided via our contact forms or audit requests.</li>
-              <li><strong>Brand & Account Details:</strong> Marketplace store identifiers, product catalogue parameters, and business metrics shared under Non-Disclosure Agreements (NDAs) for audit evaluations.</li>
+              <li><strong>Contact Information:</strong> Name, work email address, phone/WhatsApp number, and company name provided via our contact forms or consultation requests.</li>
+              <li><strong>Brand & Account Details:</strong> Marketplace store identifiers, product catalogue parameters, and business metrics shared under Non-Disclosure Agreements (NDAs) for strategy evaluations.</li>
               <li><strong>Technical Data:</strong> Anonymized browsing patterns, device characteristics, IP addresses, and interaction timestamps collected via secure analytics cookies.</li>
             </ul>
           </section>
@@ -49,8 +49,8 @@ export default function PrivacyPolicyPage() {
               Your data is utilized strictly for professional business purposes:
             </p>
             <ul>
-              <li>Conducting comprehensive 360° marketplace and digital storefront audits.</li>
-              <li>Delivering customized 90-day growth roadmaps and strategic proposals.</li>
+              <li>Conducting comprehensive 360° marketplace and digital storefront evaluations.</li>
+              <li>Delivering customized strategic proposals and growth roadmaps.</li>
               <li>Executing contracted services, including account management, advertising optimization, and creative production.</li>
               <li>Complying with statutory legal obligations and enforcing service agreements.</li>
             </ul>
@@ -84,8 +84,8 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className={styles.contactBlock}>
               <strong>E Zennith Agency</strong><br />
-              Email: <a href="mailto:contact@ezennith.com">contact@ezennith.com</a><br />
-              Phone: <a href="tel:+917488407737">+91 7488407737</a>
+              Email: <a href="mailto:Team.ezennith@gmail.com">Team.ezennith@gmail.com</a><br />
+              Phone: <a href="tel:+918797787778">+91 8797787778</a>
             </p>
           </section>
         </div>

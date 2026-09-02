@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import styles from "./CTA.module.css";
-import { ArrowRight, Phone, Mail, Sparkles, CheckCircle2, ShoppingBag, Layers, Zap, Video, ShieldCheck } from "lucide-react";
+import { ArrowRight, Phone, Mail, Sparkles, ShoppingBag, Layers, Zap, Video, ShieldCheck } from "lucide-react";
 
 export default function CTA() {
   return (
@@ -25,35 +25,38 @@ export default function CTA() {
           </p>
 
           <div className={styles.contactInfo}>
-            <a href="tel:+917488407737" className={styles.contactItem}>
+            <a href="tel:+918797787778" className={styles.contactItem}>
               <div className={styles.iconCircle}>
                 <Phone size={16} />
               </div>
-              <span>+91 7488407737</span>
+              <span>+91 8797787778</span>
             </a>
 
-            <a href="mailto:contact@ezennith.com" className={styles.contactItem}>
+            <a href="mailto:Team.ezennith@gmail.com" className={styles.contactItem}>
               <div className={styles.iconCircle}>
                 <Mail size={16} />
               </div>
-              <span>contact@ezennith.com</span>
+              <span>Team.ezennith@gmail.com</span>
             </a>
           </div>
 
           <Link href="/contact" className={styles.ctaButton}>
-            <span>Claim Your Free Growth Audit</span>
+            <span>Book Free Consultation</span>
             <ArrowRight size={18} />
           </Link>
         </div>
 
-        {/* Right Column: Premium Interactive Growth Matrix Card (Replaced Globe) */}
+        {/* Right Column: Premium Interactive Growth Matrix Card */}
         <div className={styles.showcaseCard}>
           <div className={styles.cardHeader}>
             <div className={styles.liveStatus}>
               <span className={styles.pulseDot} />
-              <span>Accepting Select DTC & Marketplace Brands</span>
+              <span>Full-Stack Growth Collective</span>
             </div>
-            <span className={styles.statusWeek}>Q3/Q4 Cohort</span>
+            <div className={styles.ndaBadgeSmall}>
+              <ShieldCheck size={14} />
+              <span><strong>100% NDA Protected</strong></span>
+            </div>
           </div>
 
           <div className={styles.pillarsGrid}>
@@ -101,7 +104,7 @@ export default function CTA() {
           <div className={styles.cardFooter}>
             <div className={styles.guaranteeRow}>
               <ShieldCheck size={18} className={styles.guaranteeIcon} />
-              <span>Includes 360° Account Gap Analysis & 90-Day Roadmap</span>
+              <span>Includes 360° Account Gap Analysis & Strategic Roadmap for Scalable Growth</span>
             </div>
           </div>
         </div>

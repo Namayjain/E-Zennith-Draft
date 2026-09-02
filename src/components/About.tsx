@@ -9,7 +9,7 @@ export default function About() {
     <section className={styles.section} id="about">
       <div className={styles.container}>
         <div className={styles.header}>
-          <TextFlip text="WHO WE ARE" />
+          <TextFlip text="WHO WE ARE?" />
         </div>
         
         {/* Editorial Signature Manifesto (Image 2 style) */}

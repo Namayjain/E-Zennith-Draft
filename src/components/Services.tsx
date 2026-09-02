@@ -57,7 +57,7 @@ export default function Services() {
     <section className={styles.section} id="what-we-do">
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>What We Do</h2>
+          <h2 className={styles.title}>What We Do?</h2>
           <p className={styles.subtitle}>
             We don't just manage accounts; we build compounding revenue engines using data, design, and aggressive optimization.
           </p>

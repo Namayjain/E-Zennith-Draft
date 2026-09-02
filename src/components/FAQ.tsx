@@ -15,7 +15,7 @@ const faqs: FAQItem[] = [
   {
     category: "Platforms & Scope",
     question: "What platforms and marketplaces does E Zennith specialize in?",
-    answer: "We engineer end-to-end growth across Amazon, Flipkart, Shopify, WooCommerce, and custom web architectures. From catalog setup and algorithmic SEO to multi-channel advertising and 3D visual assets, we manage the complete commerce lifecycle.",
+    answer: "We engineer end-to-end growth across Amazon, Flipkart, Meesho, Shopify, WooCommerce, and custom web architectures. From catalog setup and algorithmic SEO to multi-channel advertising and 3D visual assets, we manage the complete commerce lifecycle.",
   },
   {
     category: "PPC & Advertising",
@@ -34,8 +34,8 @@ const faqs: FAQItem[] = [
   },
   {
     category: "Onboarding & Engagement",
-    question: "What does the onboarding process look like after booking an audit?",
-    answer: "We begin with a comprehensive 360° account and competitive gap audit. Upon alignment, our dedicated strategists, designers, and growth engineers deploy your customized 90-day scaling roadmap within 48 hours.",
+    question: "What does the onboarding process look like after booking a strategy consultation?",
+    answer: "We begin with a comprehensive 360° account and competitive gap evaluation. Upon alignment, our dedicated strategists, designers, and growth engineers deploy a dedicated, customized roadmap for predictable long-term growth within 48 hours.",
   },
 ];
 

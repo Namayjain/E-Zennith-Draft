@@ -214,20 +214,22 @@
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
 }
 
-.statusWeek {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.25rem 0.65rem;
+.ndaBadgeSmall {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 50px;
   background: rgba(128, 0, 0, 0.08);
   color: var(--primary-maroon);
+  border: 1px solid rgba(128, 0, 0, 0.15);
 }
 
-:global(.dark) .statusWeek {
+:global(.dark) .ndaBadgeSmall {
   background: rgba(255, 77, 77, 0.12);
   color: #ff6b6b;
+  border-color: rgba(255, 77, 77, 0.25);
 }
 
 .pillarsGrid {

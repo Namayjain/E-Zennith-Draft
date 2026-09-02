@@ -5,7 +5,8 @@ import { Send, User, Mail, Phone, MessageSquare, CheckCircle, Sparkles, Shield, 
 import styles from "./ContactForm.module.css";
 
 const servicesList = [
-  "Amazon & E-Commerce",
+  "E-Commerce",
+  "Amazon Scaling",
   "Flipkart Scaling",
   "Web Development",
   "3D CGI & Creatives",
@@ -16,7 +17,7 @@ const servicesList = [
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [selectedService, setSelectedService] = useState("Amazon & E-Commerce");
+  const [selectedService, setSelectedService] = useState("E-Commerce");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,7 +43,7 @@ export default function ContactForm() {
           </div>
           <h3 className={styles.successTitle}>Growth Request Received!</h3>
           <p className={styles.successDesc}>
-            Thank you, <strong>{formData.name || "partner"}</strong>. One of our senior strategists is already reviewing your brand details and will reach out within 24 hours with a custom audit.
+            Thank you, <strong>{formData.name || "partner"}</strong>. One of our senior strategists is already reviewing your brand details and will reach out within 24 hours with a custom strategy plan.
           </p>
           <button
             onClick={() => {
@@ -63,7 +64,7 @@ export default function ContactForm() {
             </div>
             <h3 className={styles.title}>Let's Build Your Growth Engine</h3>
             <p className={styles.subtitle}>
-              Tell us about your brand. We'll audit your account and present a customized scaling roadmap within 24 hours.
+              Tell us about your brand. We'll evaluate your account and present a customized scaling roadmap within 24 hours.
             </p>
           </div>
 
@@ -114,7 +115,7 @@ export default function ContactForm() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className={styles.input}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 87977 87778"
                   />
                 </div>
               </div>
@@ -163,7 +164,7 @@ export default function ContactForm() {
                 <span className={styles.loadingSpinner} />
               ) : (
                 <>
-                  <span>Claim Your Free Growth Audit</span>
+                  <span>Book Free Consultation</span>
                   <Send size={18} />
                 </>
               )}
@@ -171,9 +172,9 @@ export default function ContactForm() {
 
             {/* Trust Indicators */}
             <div className={styles.trustRow}>
-              <div className={styles.trustItem}>
-                <Shield size={14} />
-                <span>100% Confidential (NDA)</span>
+              <div className={`${styles.trustItem} ${styles.trustItemEnlarged}`}>
+                <Shield size={16} className={styles.ndaIcon} />
+                <span className={styles.ndaText}><strong>100% NDA Protected</strong></span>
               </div>
               <div className={styles.trustItem}>
                 <Clock size={14} />

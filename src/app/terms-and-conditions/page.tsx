@@ -27,7 +27,7 @@ export default function TermsAndConditionsPage() {
           <section className={styles.section}>
             <h2>1. Acceptance of Terms</h2>
             <p>
-              By accessing our website (ezennith.com), requesting a growth audit, or engaging E Zennith for e-commerce management, advertising, design, or web development services, you agree to be legally bound by these Terms and Conditions.
+              By accessing our website (ezennith.com), requesting a growth consultation, or engaging E Zennith for e-commerce management, advertising, design, or web development services, you agree to be legally bound by these Terms and Conditions.
             </p>
           </section>
 
@@ -73,8 +73,8 @@ export default function TermsAndConditionsPage() {
             </p>
             <p className={styles.contactBlock}>
               <strong>E Zennith Agency</strong><br />
-              Email: <a href="mailto:contact@ezennith.com">contact@ezennith.com</a><br />
-              Phone: <a href="tel:+917488407737">+91 7488407737</a>
+              Email: <a href="mailto:Team.ezennith@gmail.com">Team.ezennith@gmail.com</a><br />
+              Phone: <a href="tel:+918797787778">+91 8797787778</a>
             </p>
           </section>
         </div>

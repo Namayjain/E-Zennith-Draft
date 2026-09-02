@@ -164,9 +164,9 @@ export default function Hero() {
             </div>
 
             <h1 className={styles.mobileTitle}>
-              <span className="editorial-outline">SCALING INDIA'S</span> <br />
-              <span className="editorial-solid">TOP MARKETPLACE</span> <br />
-              <span className={styles.glowText}>& DTC BRANDS.</span>
+              <span className="editorial-outline">SCALING GLOBAL</span> <br />
+              <span className="editorial-solid">TOP MARKETPLACES</span> <br />
+              <span className={styles.glowText}>& D2C BRANDS.</span>
             </h1>
 
             {/* Bottom-Left 3D Hanging Badge */}
@@ -186,11 +186,11 @@ export default function Hero() {
           {/* Mobile CTA Buttons */}
           <div className={styles.mobileCtaRow}>
             <Link href="/contact" className={styles.mobilePrimaryCta}>
-              <span>Book Growth Audit</span>
+              <span>Book Free Consultation</span>
               <ArrowUpRight size={18} />
             </Link>
             <Link href="/#what-we-do" className={styles.mobileSecondaryCta}>
-              <span>Explore Services</span>
+              <span>Explore What We Do?</span>
             </Link>
           </div>
 
@@ -229,13 +229,13 @@ export default function Hero() {
 
           {/* Trust Guarantee Bar */}
           <div className={styles.mobileTrustRow}>
-            <div className={styles.trustPill}>
-              <Shield size={13} />
-              <span>100% NDA Protected</span>
+            <div className={`${styles.trustPill} ${styles.trustPillEnlarged}`}>
+              <Shield size={15} />
+              <span><strong>100% NDA Protected</strong></span>
             </div>
             <div className={styles.trustPill}>
-              <Clock size={13} />
-              <span>24hr Audit Turnaround</span>
+              <Clock size={14} />
+              <span>24hr Strategy Turnaround</span>
             </div>
           </div>
         </div>

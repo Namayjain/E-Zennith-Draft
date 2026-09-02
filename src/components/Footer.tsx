@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Phone, ArrowUpRight, ArrowUp, ShieldCheck, Sparkles, MessageCircle } from "lucide-react";
+import { Mail, Phone, ArrowUpRight, ArrowUp, ShieldCheck, MessageCircle } from "lucide-react";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -27,21 +27,16 @@ export default function Footer() {
               Full-stack eCommerce acceleration collective. We fuse algorithmic marketplace data with high-end 3D CGI creatives and custom DTC storefronts.
             </p>
 
-            <div className={styles.statusPill}>
-              <span className={styles.pulseDot} />
-              <span>Accepting Brands for Q3/Q4</span>
-            </div>
-
             <div className={styles.directContact}>
-              <a href="tel:+917488407737" className={styles.contactItem}>
+              <a href="tel:+918797787778" className={styles.contactItem}>
                 <Phone size={15} />
-                <span>+91 7488407737</span>
+                <span>+91 8797787778</span>
               </a>
-              <a href="mailto:contact@ezennith.com" className={styles.contactItem}>
+              <a href="mailto:Team.ezennith@gmail.com" className={styles.contactItem}>
                 <Mail size={15} />
-                <span>contact@ezennith.com</span>
+                <span>Team.ezennith@gmail.com</span>
               </a>
-              <a href="https://wa.me/917488407737" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+              <a href="https://wa.me/918797787778" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                 <MessageCircle size={15} />
                 <span>Chat on WhatsApp</span>
                 <ArrowUpRight size={13} />
@@ -54,9 +49,9 @@ export default function Footer() {
             {/* Services Column */}
             <div className={styles.linkGroup}>
               <h4 className={styles.groupTitle}>Services</h4>
-              <Link href="/services/ecommerce">Amazon & Flipkart Growth</Link>
+              <Link href="/services/ecommerce">E-Commerce</Link>
               <Link href="/services/marketplace-optimization">Marketplace Optimization</Link>
-              <Link href="/services/web-dev">DTC Storefronts & Web Dev</Link>
+              <Link href="/services/web-dev">D2C storebuilding and web development</Link>
               <Link href="/services/digital-marketing">Digital Marketing & PPC</Link>
               <Link href="/services/content">3D CGI & Motion Creatives</Link>
             </div>
@@ -64,12 +59,12 @@ export default function Footer() {
             {/* Company Column */}
             <div className={styles.linkGroup}>
               <h4 className={styles.groupTitle}>Company</h4>
-              <Link href="/about">Who We Are (About)</Link>
-              <Link href="/#what-we-do">What We Do</Link>
+              <Link href="/about">Who We Are?</Link>
+              <Link href="/#what-we-do">What We Do?</Link>
               <Link href="/#portfolio">Portfolio & Case Studies</Link>
               <Link href="/#testimonials">Client Testimonials</Link>
               <Link href="/#faq">Frequently Asked Questions</Link>
-              <Link href="/contact">Book Free Growth Audit</Link>
+              <Link href="/contact">Book Free Consultation</Link>
             </div>
 
             {/* Legal & Compliance Column */}
@@ -78,8 +73,8 @@ export default function Footer() {
               <Link href="/privacy-policy">Privacy Policy</Link>
               <Link href="/terms-and-conditions">Terms & Conditions</Link>
               <div className={styles.trustBadge}>
-                <ShieldCheck size={16} />
-                <span>100% NDA Protected</span>
+                <ShieldCheck size={18} className={styles.trustShieldIcon} />
+                <span className={styles.trustBadgeText}>100% NDA Protected</span>
               </div>
             </div>
           </div>
