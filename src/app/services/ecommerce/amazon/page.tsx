@@ -10,7 +10,7 @@ export default function AmazonServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/ecommerce/amazon-account-management.jpg" 
         alt="Amazon Services" 
         className="featured-image" 
       />

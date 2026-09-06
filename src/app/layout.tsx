@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Loader from "@/components/Loader";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import MainLayoutWrapper from "@/components/MainLayoutWrapper";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "EZennith - Elevating Your Digital Presence",
@@ -31,12 +27,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <CustomCursor />
-          <Loader />
-          <Navbar />
-          {children}
-          <Footer />
-          <FloatingWhatsApp />
+          <MainLayoutWrapper>
+            {children}
+          </MainLayoutWrapper>
         </ThemeProvider>
       </body>
     </html>

@@ -10,7 +10,7 @@ export default function VideoServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/content/video-production.jpg" 
         alt="Video Creation" 
         className="featured-image" 
       />

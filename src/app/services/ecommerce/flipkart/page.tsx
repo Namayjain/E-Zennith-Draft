@@ -10,7 +10,7 @@ export default function FlipkartServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/ecommerce/flipkart-account-management.jpg" 
         alt="Flipkart Services" 
         className="featured-image" 
       />

@@ -10,7 +10,7 @@ export default function WixServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1481481833548-282490a07999?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/webdev/wix-boutique.jpg" 
         alt="WIX Customization" 
         className="featured-image" 
       />

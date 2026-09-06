@@ -10,7 +10,7 @@ export default function ProductVideoServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/content/product-demos.jpg" 
         alt="Product Videos" 
         className="featured-image" 
       />

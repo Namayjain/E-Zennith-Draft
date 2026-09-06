@@ -10,7 +10,7 @@ export default function BrandingServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/content/brand-identity.jpg" 
         alt="Branding Strategy" 
         className="featured-image" 
       />

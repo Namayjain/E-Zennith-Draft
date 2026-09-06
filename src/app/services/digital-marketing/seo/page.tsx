@@ -10,7 +10,7 @@ export default function SEOPage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/marketing/seo-growth.jpg" 
         alt="Search Engine Optimization" 
         className="featured-image" 
       />

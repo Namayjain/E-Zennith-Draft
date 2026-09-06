@@ -10,7 +10,7 @@ export default function ThreeDServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1615859131861-052f0641a6fd?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/content/3d-cgi-modeling.jpg" 
         alt="3D Modeling" 
         className="featured-image" 
       />

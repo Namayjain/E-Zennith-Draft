@@ -10,7 +10,7 @@ export default function GoogleAdsPage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/marketing/google-ads.jpg" 
         alt="Google Ads & PPC" 
         className="featured-image" 
       />

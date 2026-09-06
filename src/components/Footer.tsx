@@ -57,15 +57,19 @@ export default function Footer() {
             </div>
 
             {/* Company Column */}
+            {/* Company Column */}
             <div className={styles.linkGroup}>
               <h4 className={styles.groupTitle}>Company</h4>
               <Link href="/about">Who We Are?</Link>
               <Link href="/#what-we-do">What We Do?</Link>
-              <Link href="/#portfolio">Portfolio & Case Studies</Link>
+              <Link href="/portfolio">Portfolio & Case Studies</Link>
               <Link href="/#testimonials">Client Testimonials</Link>
               <Link href="/careers">Careers (We're Hiring)</Link>
               <Link href="/#faq">Frequently Asked Questions</Link>
               <Link href="/contact">Book Free Consultation</Link>
+              <Link href="/admin/login" style={{ color: "var(--accent-blue, #38bdf8)", fontWeight: 500 }}>
+                Admin Portal ↗
+              </Link>
             </div>
 
             {/* Legal & Compliance Column */}
@@ -92,9 +96,13 @@ export default function Footer() {
             <span className={styles.dotSeparator}>•</span>
             <Link href="/terms-and-conditions">Terms</Link>
             <span className={styles.dotSeparator}>•</span>
+            <Link href="/portfolio">Portfolio</Link>
+            <span className={styles.dotSeparator}>•</span>
             <Link href="/careers">Careers</Link>
             <span className={styles.dotSeparator}>•</span>
             <Link href="/contact">Contact</Link>
+            <span className={styles.dotSeparator}>•</span>
+            <Link href="/admin/login" title="Admin Control Center">Admin</Link>
           </div>
 
           <button onClick={scrollToTop} className={styles.backToTopBtn} aria-label="Back to Top">

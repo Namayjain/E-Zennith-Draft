@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { 
   Briefcase, 
   MapPin, 
   Clock, 
   ArrowRight, 
-  ArrowUpRight, 
   Sparkles, 
   CheckCircle, 
   X, 
@@ -19,121 +18,21 @@ import {
   Zap,
   Globe2,
   TrendingUp,
-  HeartHandshake
+  HeartHandshake,
+  Loader2,
+  Inbox
 } from "lucide-react";
 import styles from "./careers.module.css";
-
-type JobRole = {
-  id: string;
-  title: string;
-  department: string;
-  location: string;
-  type: string;
-  experience: string;
-  summary: string;
-  responsibilities: string[];
-  skills: string[];
-  isHot?: boolean;
-};
-
-const jobOpenings: JobRole[] = [
-  {
-    id: "amazon-ppc-strategist",
-    title: "Senior Amazon PPC Strategist",
-    department: "Marketplace & PPC",
-    location: "Remote (India / Global)",
-    type: "Full-Time",
-    experience: "3+ Years",
-    isHot: true,
-    summary: "Architect and execute aggressive Amazon Sponsored Products, Brands, and Display campaigns that lower ACoS and drive profitable top-of-search market share.",
-    responsibilities: [
-      "Manage high-budget multi-account Amazon advertising portfolios.",
-      "Build custom search query harvesting and negative targeting architectures.",
-      "Deliver weekly performance analytics and profit-margin attribution reports.",
-      "Collaborate directly with 3D creative teams to optimize CTR and CVR."
-    ],
-    skills: ["Amazon PPC", "Helium 10", "ACoS / TACoS Optimization", "Data Analytics", "Bulk File Ops"]
-  },
-  {
-    id: "3d-motion-designer",
-    title: "3D CGI & Motion Creative Designer",
-    department: "3D & Motion",
-    location: "Remote (Global)",
-    type: "Full-Time",
-    experience: "2+ Years",
-    isHot: true,
-    summary: "Create hyper-realistic 3D product renders, dynamic simulations, and cinematic social video ads for top global DTC & marketplace brands.",
-    responsibilities: [
-      "Model, texture, and light photorealistic 3D product CAD files (Blender / Cinema4D).",
-      "Produce scroll-stopping 3D motion graphics and short-form video ads.",
-      "Design high-converting A+ Enhanced Brand Content modules.",
-      "Iterate rapidly based on creative performance and click-through data."
-    ],
-    skills: ["Blender / C4D", "After Effects", "Photorealistic Lighting", "Octane / Redshift", "A+ Content"]
-  },
-  {
-    id: "fullstack-web-dev",
-    title: "Full-Stack D2C Web Engineer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-Time",
-    experience: "3+ Years",
-    summary: "Build bespoke Shopify Plus storefronts, custom Next.js/React web applications, and high-converting checkout architectures with sub-second load times.",
-    responsibilities: [
-      "Develop custom Liquid/Shopify Plus themes and headless React frontends.",
-      "Implement frictionless mobile-first UI/UX with smooth micro-animations.",
-      "Optimize Core Web Vitals and technical SEO performance.",
-      "Integrate Klaviyo, GA4, pixel tracking, and custom conversion scripts."
-    ],
-    skills: ["Next.js / React", "Shopify Plus / Liquid", "TypeScript", "Performance CRO", "Tailwind / CSS"]
-  },
-  {
-    id: "performance-marketing-lead",
-    title: "Performance Marketing Lead (Meta & Google)",
-    department: "Marketing",
-    location: "Remote (India)",
-    type: "Full-Time",
-    experience: "3+ Years",
-    summary: "Lead multi-channel customer acquisition across Meta Ads, Google Ads (Search, Shopping, PMax), and retention email sequences for high-growth brands.",
-    responsibilities: [
-      "Scale high-budget ad spend on Meta and Google while maintaining target ROAS.",
-      "Coordinate weekly creative testing cycles with the motion design team.",
-      "Set up full-funnel attribution, custom event pixels, and CAPI.",
-      "Architect retention email flows in Klaviyo to boost LTV."
-    ],
-    skills: ["Meta Ads Manager", "Google PMax & Search", "Klaviyo", "Attribution & CAPI", "ROAS Scaling"]
-  },
-  {
-    id: "marketplace-seo-specialist",
-    title: "Marketplace Listing & SEO Specialist",
-    department: "Marketplace & PPC",
-    location: "Remote (India)",
-    type: "Full-Time",
-    experience: "2+ Years",
-    summary: "Dominate search rankings on Amazon, Flipkart, and Meesho through scientific keyword indexation, algorithmic cataloging, and competitor gap analysis.",
-    responsibilities: [
-      "Perform high-intent keyword research and backend search term mapping.",
-      "Write persuasive, high-converting product titles, bullets, and descriptions.",
-      "Execute A/B split tests on main images and price points.",
-      "Coordinate catalog onboarding across Amazon, Flipkart, and Meesho."
-    ],
-    skills: ["Amazon SEO", "Flipkart RPD", "Listing Optimization", "Helium 10 / Jungle Scout", "Cataloging"]
-  }
-];
-
-const departments = [
-  "All Openings",
-  "Marketplace & PPC",
-  "3D & Motion",
-  "Engineering",
-  "Marketing"
-];
+import { JobRole } from "@/lib/supabase";
 
 export default function CareersPage() {
+  const [jobs, setJobs] = useState<JobRole[]>([]);
+  const [loading, setLoading] = useState(true);
   const [activeDepartment, setActiveDepartment] = useState("All Openings");
-  const [selectedRole, setSelectedRole] = useState<JobRole | null>(null);
+  const [selectedRole, setSelectedRole] = useState<{ id?: string; title: string; department?: string; location?: string } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -144,18 +43,62 @@ export default function CareersPage() {
     note: ""
   });
 
-  const filteredRoles = activeDepartment === "All Openings"
-    ? jobOpenings
-    : jobOpenings.filter((job) => job.department === activeDepartment);
+  const fetchJobs = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/careers/jobs");
+      const data = await res.json();
+      if (res.ok && Array.isArray(data.jobs)) {
+        setJobs(data.jobs);
+      } else {
+        setJobs([]);
+      }
+    } catch (err) {
+      console.error("Failed to load jobs:", err);
+      setJobs([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const handleApplyClick = (role: JobRole) => {
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  const departments = useMemo(() => {
+    const set = new Set<string>();
+    jobs.forEach((job) => {
+      if (job.department) set.add(job.department);
+    });
+    return ["All Openings", ...Array.from(set)];
+  }, [jobs]);
+
+  const filteredRoles = useMemo(() => {
+    if (activeDepartment === "All Openings") return jobs;
+    return jobs.filter((job) => job.department === activeDepartment);
+  }, [jobs, activeDepartment]);
+
+  const handleApplyClick = (role: { id?: string; title: string; department?: string; location?: string }) => {
     setSelectedRole(role);
     setSubmitted(false);
+    setErrorMsg(null);
+  };
+
+  const handleGeneralPitch = () => {
+    setSelectedRole({
+      id: undefined,
+      title: "Speculative / General Application",
+      department: "Growth & Creative Collective",
+      location: "Remote",
+    });
+    setSubmitted(false);
+    setErrorMsg(null);
   };
 
   const handleModalClose = () => {
     setSelectedRole(null);
     setSubmitted(false);
+    setErrorMsg(null);
     setFormData({
       name: "",
       email: "",
@@ -166,14 +109,40 @@ export default function CareersPage() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedRole) return;
     setIsSubmitting(true);
-    // Simulated submission - Prepared to connect to Supabase backend
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMsg(null);
+
+    try {
+      const res = await fetch("/api/careers/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          job_id: selectedRole.id || null,
+          job_title: selectedRole.title,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          portfolio: formData.portfolio,
+          experience: formData.experience,
+          note: formData.note,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit application");
+      }
+
       setSubmitted(true);
-    }, 1200);
+    } catch (err: unknown) {
+      console.error("Application submission failed:", err);
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -241,72 +210,130 @@ export default function CareersPage() {
             <p className={styles.sectionSub}>Find the role that matches your superpowers.</p>
           </div>
 
-          {/* Department Filter Tabs */}
-          <div className={styles.filterTabsWrapper}>
-            <div className={styles.filterTabs}>
-              {departments.map((dept) => (
-                <button
-                  key={dept}
-                  onClick={() => setActiveDepartment(dept)}
-                  className={`${styles.filterBtn} ${
-                    activeDepartment === dept ? styles.filterBtnActive : ""
-                  }`}
-                >
-                  {dept}
-                </button>
+          {/* Department Filter Tabs (if multiple departments exist) */}
+          {departments.length > 1 && (
+            <div className={styles.filterTabsWrapper}>
+              <div className={styles.filterTabs}>
+                {departments.map((dept) => (
+                  <button
+                    key={dept}
+                    onClick={() => setActiveDepartment(dept)}
+                    className={`${styles.filterBtn} ${
+                      activeDepartment === dept ? styles.filterBtnActive : ""
+                    }`}
+                  >
+                    {dept}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Job Openings Grid or Loading / Empty States */}
+          {loading ? (
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "60px 20px",
+              gap: "16px",
+              color: "var(--text-muted)"
+            }}>
+              <Loader2 size={32} className="animate-spin" style={{ animation: "spin 1s linear infinite" }} />
+              <p>Fetching active roles...</p>
+            </div>
+          ) : filteredRoles.length > 0 ? (
+            <div className={styles.jobsList}>
+              {filteredRoles.map((role) => (
+                <article key={role.id} className={styles.jobCard}>
+                  <div className={styles.jobMain}>
+                    <div className={styles.jobHeader}>
+                      <div className={styles.jobBadgeGroup}>
+                        <span className={styles.deptBadge}>{role.department}</span>
+                        {role.is_hot && <span className={styles.hotBadge}>🔥 Priority Role</span>}
+                      </div>
+
+                      <div className={styles.metaRow}>
+                        <span className={styles.metaItem}>
+                          <MapPin size={14} />
+                          {role.location}
+                        </span>
+                        <span className={styles.metaItem}>
+                          <Clock size={14} />
+                          {role.type}
+                        </span>
+                        <span className={styles.metaItem}>
+                          <Briefcase size={14} />
+                          {role.experience}
+                        </span>
+                      </div>
+                    </div>
+
+                    <h3 className={styles.jobTitle}>{role.title}</h3>
+                    <p className={styles.jobSummary}>{role.summary}</p>
+
+                    {role.skills && role.skills.length > 0 && (
+                      <div className={styles.skillsChips}>
+                        {role.skills.map((skill, idx) => (
+                          <span key={idx} className={styles.skillChip}>{skill}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className={styles.jobActionCol}>
+                    <button 
+                      onClick={() => handleApplyClick(role)}
+                      className={styles.applyBtn}
+                    >
+                      <span>Apply Now</span>
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
+                </article>
               ))}
             </div>
-          </div>
-
-          {/* Job Openings Grid */}
-          <div className={styles.jobsList}>
-            {filteredRoles.map((role) => (
-              <article key={role.id} className={styles.jobCard}>
-                <div className={styles.jobMain}>
-                  <div className={styles.jobHeader}>
-                    <div className={styles.jobBadgeGroup}>
-                      <span className={styles.deptBadge}>{role.department}</span>
-                      {role.isHot && <span className={styles.hotBadge}>🔥 Priority Role</span>}
-                    </div>
-
-                    <div className={styles.metaRow}>
-                      <span className={styles.metaItem}>
-                        <MapPin size={14} />
-                        {role.location}
-                      </span>
-                      <span className={styles.metaItem}>
-                        <Clock size={14} />
-                        {role.type}
-                      </span>
-                      <span className={styles.metaItem}>
-                        <Briefcase size={14} />
-                        {role.experience}
-                      </span>
-                    </div>
-                  </div>
-
-                  <h3 className={styles.jobTitle}>{role.title}</h3>
-                  <p className={styles.jobSummary}>{role.summary}</p>
-
-                  <div className={styles.skillsChips}>
-                    {role.skills.map((skill, idx) => (
-                      <span key={idx} className={styles.skillChip}>{skill}</span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className={styles.jobActionCol}>
-                  <button 
-                    onClick={() => handleApplyClick(role)}
-                    className={styles.applyBtn}
-                  >
-                    <span>Apply Now</span>
-                    <ArrowRight size={16} />
-                  </button>
-                </div>
-              </article>
-            ))}
-          </div>
+          ) : (
+            <div style={{
+              background: "var(--card-bg, rgba(255, 255, 255, 0.03))",
+              border: "1px dashed var(--border-color, rgba(255, 255, 255, 0.12))",
+              borderRadius: "20px",
+              padding: "48px 24px",
+              textAlign: "center",
+              maxWidth: "680px",
+              margin: "0 auto 40px",
+              backdropFilter: "blur(12px)"
+            }}>
+              <div style={{
+                width: "56px",
+                height: "56px",
+                borderRadius: "50%",
+                background: "rgba(56, 189, 248, 0.1)",
+                color: "#38bdf8",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 auto 16px"
+              }}>
+                <Inbox size={26} />
+              </div>
+              <h3 style={{ fontSize: "1.3rem", fontWeight: "700", marginBottom: "8px" }}>
+                No active openings in this category right now
+              </h3>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "24px" }}>
+                We frequently expand our team and welcome proactive candidates. If you have exceptional skills in eCommerce, 3D CGI, Web Dev, or Performance Ads, send us your pitch!
+              </p>
+              <button
+                onClick={handleGeneralPitch}
+                className={styles.applyBtn}
+                style={{ margin: "0 auto" }}
+              >
+                <span>Submit General Application</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          )}
 
           {/* Speculative Pitch Box */}
           <div className={styles.speculativeCard}>
@@ -316,12 +343,12 @@ export default function CareersPage() {
                 We are always seeking exceptional talent in growth marketing, 3D design, motion graphics, and full-stack engineering. Pitch us directly.
               </p>
             </div>
-            <a 
-              href="mailto:Team.ezennith@gmail.com?subject=Speculative%20Application%20-%20E%20Zennith" 
+            <button 
+              onClick={handleGeneralPitch}
               className={styles.pitchBtn}
             >
-              <span>Email Your Pitch ↗</span>
-            </a>
+              <span>Submit Your Pitch ↗</span>
+            </button>
           </div>
         </div>
       </section>
@@ -353,15 +380,28 @@ export default function CareersPage() {
                   <span className={styles.modalSubtitle}>Applying for:</span>
                   <h3 className={styles.modalRoleTitle}>{selectedRole.title}</h3>
                   <div className={styles.modalMeta}>
-                    <span>{selectedRole.department}</span>
+                    <span>{selectedRole.department || "General Application"}</span>
                     <span>•</span>
-                    <span>{selectedRole.location}</span>
+                    <span>{selectedRole.location || "Remote"}</span>
                   </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className={styles.applicationForm}>
+                  {errorMsg && (
+                    <div style={{
+                      padding: "10px 14px",
+                      background: "rgba(239, 68, 68, 0.1)",
+                      border: "1px solid rgba(239, 68, 68, 0.3)",
+                      borderRadius: "8px",
+                      color: "#ef4444",
+                      fontSize: "0.85rem",
+                    }}>
+                      ⚠️ {errorMsg}
+                    </div>
+                  )}
+
                   <div className={styles.inputGroup}>
-                    <label htmlFor="app-name" className={styles.label}>Your Full Name</label>
+                    <label htmlFor="app-name" className={styles.label}>Your Full Name *</label>
                     <div className={styles.inputWrapper}>
                       <User size={18} className={styles.fieldIcon} />
                       <input
@@ -378,7 +418,7 @@ export default function CareersPage() {
 
                   <div className={styles.formRow}>
                     <div className={styles.inputGroup}>
-                      <label htmlFor="app-email" className={styles.label}>Email Address</label>
+                      <label htmlFor="app-email" className={styles.label}>Email Address *</label>
                       <div className={styles.inputWrapper}>
                         <Mail size={18} className={styles.fieldIcon} />
                         <input
@@ -400,7 +440,6 @@ export default function CareersPage() {
                         <input
                           type="tel"
                           id="app-phone"
-                          required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+91 98765 43210"
@@ -417,7 +456,6 @@ export default function CareersPage() {
                       <input
                         type="url"
                         id="app-portfolio"
-                        required
                         value={formData.portfolio}
                         onChange={(e) => setFormData({ ...formData, portfolio: e.target.value })}
                         placeholder="https://linkedin.com/in/yourname or portfolio.com"
@@ -434,6 +472,7 @@ export default function CareersPage() {
                       onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                       className={styles.select}
                     >
+                      <option value="Entry Level / Intern">Entry Level / Intern</option>
                       <option value="1-2 years">1–2 Years</option>
                       <option value="3-5 years">3–5 Years</option>
                       <option value="5+ years">5+ Years (Senior / Lead)</option>
@@ -449,7 +488,7 @@ export default function CareersPage() {
                         rows={3}
                         value={formData.note}
                         onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                        placeholder="Tell us about your biggest win or why you'd excel in this role..."
+                        placeholder="Tell us about your biggest win or why you'd excel with us..."
                         className={styles.textarea}
                       />
                     </div>

@@ -25,13 +25,38 @@ export default function ContactForm() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setErrorMsg(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: selectedService,
+          message: formData.message,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit form. Please try again.");
+      }
+
       setSubmitted(true);
-    }, 1200);
+    } catch (err: unknown) {
+      console.error("Submission failed:", err);
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -157,6 +182,23 @@ export default function ContactForm() {
                 />
               </div>
             </div>
+
+            {/* Error Message Display */}
+            {errorMsg && (
+              <div style={{
+                padding: "12px 16px",
+                background: "rgba(239, 68, 68, 0.1)",
+                border: "1px solid rgba(239, 68, 68, 0.3)",
+                borderRadius: "10px",
+                color: "#ef4444",
+                fontSize: "0.88rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}>
+                <span>⚠️ {errorMsg}</span>
+              </div>
+            )}
 
             {/* Submit Button */}
             <button type="submit" className={styles.submitBtn} disabled={loading}>

@@ -10,7 +10,7 @@ export default function ShopifyServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/webdev/shopify-storefronts.jpg" 
         alt="Shopify Development" 
         className="featured-image" 
       />

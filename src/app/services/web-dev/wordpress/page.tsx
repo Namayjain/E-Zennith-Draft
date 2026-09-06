@@ -10,7 +10,7 @@ export default function WordpressServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/webdev/wordpress-woocommerce.jpg" 
         alt="WordPress Development" 
         className="featured-image" 
       />

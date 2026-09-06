@@ -10,7 +10,7 @@ export default function ABTestingCROPage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/optimization/ab-testing-cro.jpg" 
         alt="A/B Testing & CRO" 
         className="featured-image" 
       />

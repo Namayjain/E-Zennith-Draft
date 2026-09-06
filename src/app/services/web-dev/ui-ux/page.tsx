@@ -10,7 +10,7 @@ export default function UiUxServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/webdev/ui-ux-design.jpg" 
         alt="UI/UX Design" 
         className="featured-image" 
       />

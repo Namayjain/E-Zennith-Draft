@@ -10,7 +10,7 @@ export default function MetaAdsPage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/marketing/meta-ads.jpg" 
         alt="Meta Ads Facebook Instagram" 
         className="featured-image" 
       />

@@ -10,7 +10,7 @@ export default function ServicePage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/ecommerce/flipkart-rpd.jpg" 
         alt="Flipkart RPD" 
         className="featured-image" 
       />

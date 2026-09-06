@@ -110,7 +110,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   { title: "What We Do?", link: "/#what-we-do" },
-  { title: "Portfolio", link: "/#portfolio" },
+  { title: "Portfolio", link: "/portfolio" },
   { title: "Who We Are?", link: "/about" },
 ];
 
@@ -530,9 +530,9 @@ export default function Navbar() {
                 </a>
 
                 <a
-                  href="/#portfolio"
+                  href="/portfolio"
                   className={styles.mobileNavLink}
-                  onClick={(e) => handleMobileNav(e, "/#portfolio")}
+                  onClick={(e) => handleMobileNav(e, "/portfolio")}
                 >
                   Portfolio
                 </a>

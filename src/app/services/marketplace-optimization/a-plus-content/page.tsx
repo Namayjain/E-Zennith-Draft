@@ -10,7 +10,7 @@ export default function APlusContentPage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/optimization/a-plus-content.jpg" 
         alt="A+ Content & EBC" 
         className="featured-image" 
       />

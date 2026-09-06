@@ -10,7 +10,7 @@ export default function EmailMarketingPage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img 
-        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200" 
+        src="/images/services/marketing/email-marketing.jpg" 
         alt="Email Marketing Retention" 
         className="featured-image" 
       />
