@@ -6,9 +6,41 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { name, email, phone, service, budget, message } = body;
 
-    if (!name || !email || !message) {
+    const trimmedName = typeof name === "string" ? name.trim() : "";
+    const trimmedEmail = typeof email === "string" ? email.trim() : "";
+    const trimmedPhone = typeof phone === "string" ? phone.trim() : "";
+    const trimmedMessage = typeof message === "string" ? message.trim() : "";
+
+    // 1. Name validation
+    if (!trimmedName || trimmedName.length < 2) {
       return NextResponse.json(
-        { error: "Name, email, and message are required." },
+        { error: "Please provide a valid full name (at least 2 characters)." },
+        { status: 400 }
+      );
+    }
+
+    // 2. Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      return NextResponse.json(
+        { error: "Please provide a valid work email address." },
+        { status: 400 }
+      );
+    }
+
+    // 3. Phone validation
+    const phoneDigits = trimmedPhone.replace(/\D/g, "");
+    if (!trimmedPhone || phoneDigits.length < 10 || phoneDigits.length > 15) {
+      return NextResponse.json(
+        { error: "Please provide a valid contact phone number with at least 10 digits." },
+        { status: 400 }
+      );
+    }
+
+    // 4. Message validation
+    if (!trimmedMessage || trimmedMessage.length < 10) {
+      return NextResponse.json(
+        { error: "Please provide a project description of at least 10 characters." },
         { status: 400 }
       );
     }

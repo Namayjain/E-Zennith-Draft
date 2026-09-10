@@ -24,7 +24,7 @@ export default function Footer() {
             </Link>
 
             <p className={styles.description}>
-              Full-stack eCommerce acceleration collective. We fuse algorithmic marketplace data with high-end 3D CGI creatives and custom DTC storefronts.
+              Full-stack eCommerce acceleration collective. We fuse algorithmic marketplace data with high-end 3D CGI creatives and custom D2C storefronts.
             </p>
 
             <div className={styles.directContact}>
@@ -57,7 +57,6 @@ export default function Footer() {
             </div>
 
             {/* Company Column */}
-            {/* Company Column */}
             <div className={styles.linkGroup}>
               <h4 className={styles.groupTitle}>Company</h4>
               <Link href="/about">Who We Are?</Link>
@@ -67,9 +66,6 @@ export default function Footer() {
               <Link href="/careers">Careers (We're Hiring)</Link>
               <Link href="/#faq">Frequently Asked Questions</Link>
               <Link href="/contact">Book Free Consultation</Link>
-              <Link href="/admin/login" style={{ color: "var(--accent-blue, #38bdf8)", fontWeight: 500 }}>
-                Admin Portal ↗
-              </Link>
             </div>
 
             {/* Legal & Compliance Column */}
@@ -81,6 +77,9 @@ export default function Footer() {
                 <ShieldCheck size={18} className={styles.trustShieldIcon} />
                 <span className={styles.trustBadgeText}>100% NDA Protected</span>
               </div>
+              <div style={{ fontSize: "0.78rem", color: "#71717a", marginTop: "10px", lineHeight: 1.4 }}>
+                <span>GSTIN: </span><strong style={{ letterSpacing: "0.04em", color: "var(--text-color, #a1a1aa)" }}>20AANFE3074F1ZR</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +87,7 @@ export default function Footer() {
         {/* Bottom Section: Copyright, Legal Links & Back to Top */}
         <div className={styles.bottomSection}>
           <div className={styles.copyrightText}>
-            © {new Date().getFullYear()} E Zennith Agency. All rights reserved.
+            © {new Date().getFullYear()} E Zennith Agency • GSTIN: 20AANFE3074F1ZR. All rights reserved.
           </div>
 
           <div className={styles.bottomLegalLinks}>
@@ -101,8 +100,6 @@ export default function Footer() {
             <Link href="/careers">Careers</Link>
             <span className={styles.dotSeparator}>•</span>
             <Link href="/contact">Contact</Link>
-            <span className={styles.dotSeparator}>•</span>
-            <Link href="/admin/login" title="Admin Control Center">Admin</Link>
           </div>
 
           <button onClick={scrollToTop} className={styles.backToTopBtn} aria-label="Back to Top">

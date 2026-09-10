@@ -157,47 +157,289 @@
   line-height: 1.5;
 }
 
-/* Service Selector Chips */
-.chipsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+/* Form Field Validation States */
+.inputError {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.04) !important;
 }
 
-.chip {
-  padding: 0.5rem 0.9rem;
-  border-radius: 50px;
+:global(.dark) .inputError {
+  border-color: #f87171 !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2) !important;
+}
+
+.fieldErrorMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: #ef4444;
+  font-weight: 500;
+  margin-top: 0.2rem;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+:global(.dark) .fieldErrorMessage {
+  color: #f87171;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Executive Service Selector Component */
+.selectorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.selectedIndicator {
+  font-size: 0.78rem;
+  color: var(--primary-maroon);
+  font-weight: 500;
+}
+
+:global(.dark) .selectedIndicator {
+  color: #ff6b6b;
+}
+
+.selectedIndicator strong {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Category Navigation Tabs */
+.categoryTabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+}
+
+:global(.dark) .categoryTabs {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.catTab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  opacity: 0.7;
   font-size: 0.82rem;
   font-weight: 600;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  color: var(--text-color);
-  opacity: 0.75;
   cursor: pointer;
   transition: all 0.25s ease;
   outline: none;
 }
 
-:global(.dark) .chip {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
+.catTab:hover {
+  opacity: 0.95;
+  background: rgba(0, 0, 0, 0.03);
 }
 
-.chip:hover {
-  opacity: 1;
+:global(.dark) .catTab:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.catTabActive {
+  background: #ffffff !important;
+  color: var(--primary-maroon) !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-weight: 700;
+}
+
+:global(.dark) .catTabActive {
+  background: #202026 !important;
+  color: #ff6b6b !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.tabBadge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.06);
+  color: inherit;
+}
+
+:global(.dark) .tabBadge {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Service Cards Grid */
+.serviceCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  max-height: 230px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 0, 0, 0.3) transparent;
+}
+
+.serviceCardsGrid::-webkit-scrollbar {
+  width: 5px;
+}
+
+.serviceCardsGrid::-webkit-scrollbar-thumb {
+  background: rgba(128, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.025);
+  border: 1.5px solid rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  gap: 0.35rem;
+}
+
+:global(.dark) .serviceCard {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.serviceCard:hover {
+  border-color: rgba(128, 0, 0, 0.4);
+  background: rgba(128, 0, 0, 0.03);
+  transform: translateY(-1px);
+}
+
+:global(.dark) .serviceCard:hover {
+  border-color: rgba(255, 77, 77, 0.4);
+  background: rgba(255, 77, 77, 0.05);
+}
+
+.serviceCardSelected {
+  background: rgba(128, 0, 0, 0.06) !important;
+  border-color: var(--primary-maroon) !important;
+  box-shadow: 0 0 0 1px var(--primary-maroon), 0 4px 14px rgba(128, 0, 0, 0.12);
+}
+
+:global(.dark) .serviceCardSelected {
+  background: rgba(255, 77, 77, 0.08) !important;
+  border-color: #ff5e5e !important;
+  box-shadow: 0 0 0 1px #ff5e5e, 0 4px 18px rgba(255, 77, 77, 0.18);
+}
+
+.serviceCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.serviceCardIconWrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--primary-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.dark) .serviceCardIconWrap {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ff6b6b;
+}
+
+.serviceCardSelected .serviceCardIconWrap {
+  background: var(--primary-maroon);
+  color: #ffffff;
+}
+
+:global(.dark) .serviceCardSelected .serviceCardIconWrap {
+  background: #ff5e5e;
+  color: #0c0c0e;
+}
+
+.radioIndicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+:global(.dark) .radioIndicator {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.serviceCardSelected .radioIndicator {
+  background: var(--primary-maroon);
   border-color: var(--primary-maroon);
 }
 
-.chipSelected {
-  background: var(--primary-maroon) !important;
-  color: #ffffff !important;
-  border-color: var(--primary-maroon) !important;
-  opacity: 1 !important;
-  box-shadow: 0 4px 12px rgba(128, 0, 0, 0.25);
+:global(.dark) .serviceCardSelected .radioIndicator {
+  background: #ff5e5e;
+  border-color: #ff5e5e;
+  color: #0c0c0e;
 }
 
-:global(.dark) .chipSelected {
-  background: linear-gradient(135deg, var(--primary-maroon), #b82222) !important;
+.serviceCardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.serviceCardTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.25;
+}
+
+.serviceCardTag {
+  font-size: 0.72rem;
+  color: var(--text-color);
+  opacity: 0.65;
+  line-height: 1.2;
+}
+
+.serviceCardSelected .serviceCardTag {
+  opacity: 0.9;
+  color: var(--primary-maroon);
+}
+
+:global(.dark) .serviceCardSelected .serviceCardTag {
+  color: #ff9b9b;
 }
 
 /* Submit Button */
@@ -361,6 +603,16 @@
   
   .rowGrid {
     grid-template-columns: 1fr;
+  }
+  
+  .serviceCardsGrid {
+    grid-template-columns: 1fr;
+    max-height: 260px;
+  }
+
+  .categoryTabs {
+    flex-direction: column;
+    gap: 0.35rem;
   }
   
   .trustRow {

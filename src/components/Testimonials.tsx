@@ -43,7 +43,7 @@ const testimonials = [
     name: "Pooja Verma",
     role: "Creative Director",
     brand: "Nova Living",
-    verified: "DTC Innovator",
+    verified: "D2C Innovator",
     initials: "PV",
   },
 ];

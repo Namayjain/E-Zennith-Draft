@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight, TrendingUp, Sparkles, ShieldCheck, BarChart3, CheckCircle2 } from "lucide-react";
 import styles from "./PortfolioTeaser.module.css";
@@ -58,17 +60,19 @@ export default function PortfolioTeaser() {
                   <span className={styles.previewLabel}>Amazon Seller Central Performance Audit</span>
                 </div>
                 
-                <div className={styles.previewImageWrapper}>
+                <div
+                  className={styles.previewImageWrapper}
+                  onContextMenu={(e) => e.preventDefault()}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/portfolio/case1-june-after-scale-12x.jpeg"
                     alt="Amazon PPC Case Study Report"
                     className={styles.previewImg}
+                    draggable={false}
+                    onDragStart={(e) => e.preventDefault()}
+                    onContextMenu={(e) => e.preventDefault()}
                   />
-                  <div className={styles.watermarkBadge}>
-                    <ShieldCheck size={13} />
-                    <span>E Zennith Verified</span>
-                  </div>
                 </div>
 
                 <div className={styles.previewFooter}>

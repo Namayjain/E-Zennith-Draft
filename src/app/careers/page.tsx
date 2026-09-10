@@ -440,8 +440,9 @@ export default function CareersPage() {
                         <input
                           type="tel"
                           id="app-phone"
+                          inputMode="tel"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/[^0-9+\s\-()]/g, "") })}
                           placeholder="+91 98765 43210"
                           className={styles.input}
                         />

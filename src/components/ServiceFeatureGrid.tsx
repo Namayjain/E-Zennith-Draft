@@ -16,11 +16,12 @@ interface ServiceFeatureGridProps {
   title: string;
   subtitle: string;
   features: Feature[];
+  id?: string;
 }
 
-export default function ServiceFeatureGrid({ title, subtitle, features }: ServiceFeatureGridProps) {
+export default function ServiceFeatureGrid({ title, subtitle, features, id }: ServiceFeatureGridProps) {
   return (
-    <section className={styles.section}>
+    <section id={id} className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>{title}</h2>

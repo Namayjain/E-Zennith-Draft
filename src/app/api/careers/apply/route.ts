@@ -6,9 +6,28 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { job_id, job_title, name, email, phone, portfolio, experience, note } = body;
 
-    if (!name || !email || !job_title) {
+    const trimmedName = typeof name === "string" ? name.trim() : "";
+    const trimmedEmail = typeof email === "string" ? email.trim() : "";
+    const trimmedJobTitle = typeof job_title === "string" ? job_title.trim() : "";
+
+    if (!trimmedName || trimmedName.length < 2) {
       return NextResponse.json(
-        { error: "Name, email, and job title are required." },
+        { error: "Please provide your full name (at least 2 characters)." },
+        { status: 400 }
+      );
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      return NextResponse.json(
+        { error: "Please provide a valid email address." },
+        { status: 400 }
+      );
+    }
+
+    if (!trimmedJobTitle) {
+      return NextResponse.json(
+        { error: "Job title is required." },
         { status: 400 }
       );
     }

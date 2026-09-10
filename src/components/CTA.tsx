@@ -75,7 +75,7 @@ export default function CTA() {
                 <Layers size={20} />
               </div>
               <div className={styles.pillarText}>
-                <span className={styles.pillarTitle}>Custom DTC Storefronts</span>
+                <span className={styles.pillarTitle}>Custom D2C Storefronts</span>
                 <span className={styles.pillarDesc}>Shopify Plus & bespoke UI/UX architecture</span>
               </div>
             </div>

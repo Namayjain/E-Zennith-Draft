@@ -40,18 +40,18 @@ type CaseStudy = {
 const caseStudiesData: CaseStudy[] = [
   {
     id: "case-1-turnaround",
-    title: "Amazon PPC Turnaround & 100% Monthly Revenue Scale",
+    title: "Amazon PPC Turnaround & Scaling: May Calibration to June Dominance",
     category: "Before & After Turnarounds",
     marketplace: "Amazon Seller Central",
     image: "/images/portfolio/case1-june-after-scale-12x.jpeg",
     metrics: {
       highlight: "12.16x ROAS",
-      label: "Verified Campaign ROAS",
+      label: "Verified June ROAS",
       secondaryHighlight: "₹10.28L/mo",
       secondaryLabel: "Total Monthly Revenue"
     },
-    summary: "Transformed low-volume test campaigns into a high-margin revenue engine, scaling sales from ₹504 (May) to ₹1.38L ad sales (June) and ₹10.28L total monthly revenue.",
-    analysis: "Phase 1 harvested conversion-intent keywords and built negative targeting rules. Phase 2 aggressively dominated Top-of-Search placements on high-converting root phrases, slashing ACoS to 8.22% while scaling budget over 130x."
+    summary: "Transformed May initial calibration (₹88.0K sales @ 3.53 ROAS, 28.34% ACoS) into a high-margin June scaling engine (12.16x ROAS, 8.22% ACoS), expanding macro store revenue to ₹10.28L/month.",
+    analysis: "Phase 1 (May): Deployed ad harvesting campaigns to identify high-converting keyword roots and isolate bleeding search queries (₹24,945 spend, ₹88,037 sales @ 3.53 ROAS / 28.34% ACoS). Phase 2 (June): Re-allocated budget into high-converting exact match roots with Top-of-Search placement multipliers, surging ROAS to 12.16x and slashing ACoS down to 8.22%."
   },
   {
     id: "case-2-enterprise-scale",
@@ -168,24 +168,24 @@ export default function PortfolioPage() {
       badgeClass: styles.stageBadgeBefore,
       title: "Initial Calibration & Ad Harvesting (May 2026)",
       image: "/images/portfolio/case1-may-before-ads.jpeg",
-      narrative: "Initial calibration test phase. Low ad volume was deployed to test conversion queries and identify negative bleeding keywords before scaling capital.",
+      narrative: "Initial calibration and search term harvesting phase (1 May – 31 May, 2026). Identified conversion queries and pruned bleeding search terms, establishing a baseline of ₹88,037.20 in ad sales at 3.53 ROAS with 28.34% ACoS.",
       metrics: [
-        { label: "Ad Spend", value: "₹84.96" },
-        { label: "Ad Sales", value: "₹504.00" },
-        { label: "ROAS", value: "5.93x" },
-        { label: "ACoS", value: "16.86%" }
+        { label: "May Ad Spend", value: "₹24,945.63" },
+        { label: "May Ad Sales", value: "₹88,037.20" },
+        { label: "Baseline ROAS", value: "3.53x" },
+        { label: "Initial ACoS", value: "28.34%" }
       ],
       caseStudyRef: caseStudiesData[0]
     },
     "june-after": {
-      stageBadge: "Stage 2: JUNE (After - PPC Scaled 130x)",
+      stageBadge: "Stage 2: JUNE (After - Scaled @ 12.16x ROAS)",
       badgeClass: styles.stageBadgeAfter,
       title: "Optimized Scaling & 12.16x ROAS Engine (June 2026)",
       image: "/images/portfolio/case1-june-after-scale-12x.jpeg",
-      narrative: "Budget scaled over 130x with aggressive Top-of-Search placement on proven root terms. ACoS dropped from 16.86% to 8.22%, while ROAS surged to 12.16x.",
+      narrative: "Full campaign restructuring with aggressive Top-of-Search placement on proven root terms. ACoS dropped from 28.34% down to 8.22%, while ROAS surged 3.4x from 3.53x to 12.16x, scaling ad sales to ₹1,38,368.",
       metrics: [
         { label: "Scaled Ad Sales", value: "₹1,38,368" },
-        { label: "Ad Spend", value: "₹11,375" },
+        { label: "Optimized Spend", value: "₹11,375" },
         { label: "Verified ROAS", value: "12.16x" },
         { label: "Target ACoS", value: "8.22%" }
       ],
@@ -210,7 +210,7 @@ export default function PortfolioPage() {
   const currentStageData = turnaroundStages[activeStage];
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} onContextMenu={(e) => e.preventDefault()}>
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.container}>
@@ -296,7 +296,7 @@ export default function PortfolioPage() {
               className={`${styles.stageTabBtn} ${activeStage === "may-before" ? styles.stageTabActive : ""}`}
             >
               <span className={styles.stageTag}>Stage 1</span>
-              <span>May (Before - Ad Test Phase)</span>
+              <span>May (Before - Initial Calibration)</span>
             </button>
 
             <button
@@ -321,6 +321,7 @@ export default function PortfolioPage() {
             <div
               className={styles.stageVisualWrapper}
               onClick={() => setSelectedImage(currentStageData.caseStudyRef)}
+              onContextMenu={(e) => e.preventDefault()}
               title="Click to view full-size report in high resolution"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -328,18 +329,10 @@ export default function PortfolioPage() {
                 src={currentStageData.image}
                 alt={currentStageData.title}
                 className={styles.stageImage}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
+                onContextMenu={(e) => e.preventDefault()}
               />
-
-              {/* Watermark Security Layer */}
-              <div className={styles.watermarkLayer}>
-                <div className={styles.watermarkTextPattern}>
-                  E ZENNITH VERIFIED AUDIT • CLIENT CASE STUDY • E ZENNITH VERIFIED AUDIT • CLIENT CASE STUDY • E ZENNITH VERIFIED AUDIT
-                </div>
-                <div className={styles.watermarkCenterBadge}>
-                  <ShieldCheck size={16} />
-                  <span>E ZENNITH VERIFIED AUDIT</span>
-                </div>
-              </div>
 
               <div className={styles.zoomPrompt}>
                 <ZoomIn size={14} />
@@ -411,6 +404,7 @@ export default function PortfolioPage() {
                 <div
                   className={styles.cardMediaWrapper}
                   onClick={() => setSelectedImage(study)}
+                  onContextMenu={(e) => e.preventDefault()}
                   title="Click to zoom report"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -418,18 +412,10 @@ export default function PortfolioPage() {
                     src={study.image}
                     alt={study.title}
                     className={styles.cardImg}
+                    draggable={false}
+                    onDragStart={(e) => e.preventDefault()}
+                    onContextMenu={(e) => e.preventDefault()}
                   />
-
-                  {/* Watermark Security Layer */}
-                  <div className={styles.watermarkLayer}>
-                    <div className={styles.watermarkTextPattern}>
-                      E ZENNITH VERIFIED AUDIT • CLIENT CASE STUDY • E ZENNITH VERIFIED AUDIT
-                    </div>
-                    <div className={styles.watermarkCenterBadge}>
-                      <ShieldCheck size={14} />
-                      <span>E ZENNITH VERIFIED</span>
-                    </div>
-                  </div>
 
                   <div className={styles.zoomPrompt}>
                     <ZoomIn size={13} />
@@ -493,7 +479,7 @@ export default function PortfolioPage() {
       {/* INTERACTIVE FULL-SCREEN LIGHTBOX MODAL */}
       {/* ========================================================================= */}
       {selectedImage && (
-        <div className={styles.lightboxOverlay} onClick={() => setSelectedImage(null)}>
+        <div className={styles.lightboxOverlay} onClick={() => setSelectedImage(null)} onContextMenu={(e) => e.preventDefault()}>
           <div className={styles.lightboxBox} onClick={(e) => e.stopPropagation()}>
             <div className={styles.lightboxHeader}>
               <div>
@@ -511,24 +497,19 @@ export default function PortfolioPage() {
               </button>
             </div>
 
-            <div className={styles.lightboxMediaWrapper}>
+            <div
+              className={styles.lightboxMediaWrapper}
+              onContextMenu={(e) => e.preventDefault()}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={selectedImage.image}
                 alt={selectedImage.title}
                 className={styles.lightboxImg}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
+                onContextMenu={(e) => e.preventDefault()}
               />
-
-              {/* Watermark Security Layer */}
-              <div className={styles.watermarkLayer}>
-                <div className={styles.watermarkTextPattern}>
-                  E ZENNITH VERIFIED AUDIT • CLIENT CASE STUDY • E ZENNITH VERIFIED AUDIT • CLIENT CASE STUDY
-                </div>
-                <div className={styles.watermarkCenterBadge}>
-                  <ShieldCheck size={16} />
-                  <span>E ZENNITH VERIFIED AUDIT • CONFIDENTIAL</span>
-                </div>
-              </div>
             </div>
 
             <div className={styles.lightboxDetailsGrid}>

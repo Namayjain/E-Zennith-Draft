@@ -21,7 +21,7 @@ export default function CustomCursor() {
 
     let animId: number;
 
-    // 60fps physics loop (Never resets to top corner)
+    // 60fps physics loop (position purely handled here)
     const render = () => {
       // Lerp physics: outer ring smoothly glides towards center dot
       trailingPos.current.x += (mousePos.current.x - trailingPos.current.x) * 0.22;
@@ -49,13 +49,13 @@ export default function CustomCursor() {
     };
 
     const handleMouseDown = () => {
-      ring.classList.add(styles.ringClick);
-      dot.classList.add(styles.dotClick);
+      ring.classList.add(styles.isClicking);
+      dot.classList.add(styles.isClicking);
     };
 
     const handleMouseUp = () => {
-      ring.classList.remove(styles.ringClick);
-      dot.classList.remove(styles.dotClick);
+      ring.classList.remove(styles.isClicking);
+      dot.classList.remove(styles.isClicking);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -74,11 +74,11 @@ export default function CustomCursor() {
         target.closest('[role="button"]') !== null;
 
       if (isInteractive) {
-        ring.classList.add(styles.ringHover);
-        dot.classList.add(styles.dotHover);
+        ring.classList.add(styles.isHovering);
+        dot.classList.add(styles.isHovering);
       } else {
-        ring.classList.remove(styles.ringHover);
-        dot.classList.remove(styles.dotHover);
+        ring.classList.remove(styles.isHovering);
+        dot.classList.remove(styles.isHovering);
       }
     };
 
@@ -114,10 +114,14 @@ export default function CustomCursor() {
   return (
     <>
       {/* Outer Magnetic Trailing Aura Ring */}
-      <div ref={ringRef} className={styles.cursorRing} />
+      <div ref={ringRef} className={styles.cursorRing}>
+        <div className={styles.ringVisual} />
+      </div>
 
       {/* Inner Precision Center Point */}
-      <div ref={dotRef} className={styles.cursorDot} />
+      <div ref={dotRef} className={styles.cursorDot}>
+        <div className={styles.dotVisual} />
+      </div>
     </>
   );
 }

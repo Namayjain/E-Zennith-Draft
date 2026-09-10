@@ -313,56 +313,10 @@
   height: auto;
   display: block;
   object-fit: cover;
-}
-
-/* Security Watermark Overlay on Images */
-.watermarkLayer {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
   user-select: none;
-  overflow: hidden;
-}
-
-.watermarkTextPattern {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-25deg);
-  opacity: 0.35;
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 1.4rem;
-  font-weight: 900;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  line-height: 2.2;
-  text-align: center;
-  white-space: pre-wrap;
-}
-
-.watermarkCenterBadge {
-  position: relative;
-  background: rgba(10, 10, 14, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 8px 18px;
-  border-radius: 10px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
 }
 
 .zoomPrompt {
@@ -582,6 +536,10 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
 }
 
 .caseStudyCard:hover .cardImg {
@@ -794,6 +752,10 @@
   max-height: 65vh;
   object-fit: contain;
   display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
 }
 
 .lightboxDetailsGrid {

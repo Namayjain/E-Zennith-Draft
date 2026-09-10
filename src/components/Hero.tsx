@@ -124,7 +124,7 @@ export default function Hero() {
                   </div>
                   <div className={styles.statText}>
                     <span className={styles.statValue}>Omnichannel Growth</span>
-                    <span className={styles.statLabel}>Amazon, Flipkart & DTC</span>
+                    <span className={styles.statLabel}>Amazon, Flipkart & D2C</span>
                   </div>
                 </div>
               </div>
@@ -215,7 +215,7 @@ export default function Hero() {
                 <Layers size={18} />
               </div>
               <div className={styles.featureCardText}>
-                <span className={styles.featureCardTitle}>Custom DTC Storefronts</span>
+                <span className={styles.featureCardTitle}>Custom D2C Storefronts</span>
                 <span className={styles.featureCardDesc}>Shopify Plus & bespoke UI/UX architecture</span>
               </div>
             </div>

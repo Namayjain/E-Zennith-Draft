@@ -8,8 +8,8 @@ import ScrambleText from "./ScrambleText";
 
 const services = [
   {
-    title: "Amazon & E-Commerce",
-    description: "End-to-end account management, cataloging, and high-conversion advertising for Amazon and Flipkart. We build compounding revenue engines.",
+    title: "E-Commerce",
+    description: "End-to-end account management, cataloging, and high-conversion advertising for Amazon, Flipkart, Meesho, Blinkit, Myntra, Etsy & custom marketplaces. We build compounding revenue engines.",
     icon: <ShoppingBag size={40} strokeWidth={1.5} />,
     link: "/services/ecommerce",
   },

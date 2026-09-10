@@ -37,27 +37,25 @@ const serviceSuites: ServiceSuite[] = [
     id: "ecommerce",
     category: "ecommerce",
     icon: ShoppingBag,
-    badge: "Amazon & Flipkart Scale",
+    badge: "Omnichannel Marketplace Scale",
     title: "E-Commerce Acceleration",
-    tagline: "Dominate search rankings and scale revenue on Amazon & Flipkart.",
-    description: "End-to-end marketplace management fusing algorithmic ranking velocity, catalog architecture, aggressive PPC bidding, and dispute reinstatement.",
+    tagline: "Dominate search rankings and scale revenue across Amazon, Flipkart, Meesho, Blinkit, Myntra & Etsy.",
+    description: "End-to-end marketplace management fusing algorithmic ranking velocity, catalog architecture, aggressive PPC bidding, dark-store inventory planning, and cross-border expansion.",
     mainLink: "/services/ecommerce",
     highlights: [
-      "Targeted Amazon & Flipkart PPC bid management",
-      "Listing indexation & keyword SEO rank velocity",
-      "A+ Enhanced Brand Content & Storefront Design",
-      "Account suspension recovery & compliance protection"
+      "Amazon & Flipkart PPC bid dominance & A+ Content",
+      "Meesho high-volume Tier 2/3 catalog optimization",
+      "Blinkit Quick-Commerce 10-min inventory scaling",
+      "Myntra fashion curation & Etsy global export setup"
     ],
     subServices: [
-      { title: "Amazon Account Management", link: "/services/ecommerce/amazon/account-management" },
-      { title: "Amazon PPC Advertising", link: "/services/ecommerce/amazon/advertising" },
-      { title: "Amazon Reinstatement", link: "/services/ecommerce/amazon/account-reinstatement" },
-      { title: "Amazon Launch & Setup", link: "/services/ecommerce/amazon/account-launch-and-registration" },
-      { title: "Amazon A+ Content (EBC)", link: "/services/ecommerce/amazon/a-plus" },
-      { title: "Amazon Storefront Creation", link: "/services/ecommerce/amazon/storefront-creation" },
-      { title: "Flipkart Account Scaling", link: "/services/ecommerce/flipkart/account-management" },
-      { title: "Flipkart Advertising", link: "/services/ecommerce/flipkart/advertising" },
-      { title: "Flipkart RPD Optimization", link: "/services/ecommerce/flipkart/rpd" }
+      { title: "Amazon Services Suite", link: "/services/ecommerce/amazon" },
+      { title: "Flipkart Services Suite", link: "/services/ecommerce/flipkart" },
+      { title: "Meesho Scaling", link: "/services/ecommerce/meesho" },
+      { title: "Blinkit Quick-Commerce", link: "/services/ecommerce/blinkit" },
+      { title: "Myntra Fashion Growth", link: "/services/ecommerce/myntra" },
+      { title: "Etsy Global Export", link: "/services/ecommerce/etsy" },
+      { title: "Other Marketplaces (Inquire)", link: "/contact" }
     ]
   },
   {
@@ -86,7 +84,7 @@ const serviceSuites: ServiceSuite[] = [
     id: "web-dev",
     category: "webdev",
     icon: Layers,
-    badge: "Custom DTC Architecture",
+    badge: "Custom D2C Architecture",
     title: "D2C Storebuilding & Web Dev",
     tagline: "Lightning-fast, high-converting digital storefronts built to scale.",
     description: "Custom Shopify Plus, WooCommerce, and bespoke modern web applications tailored for maximum average order value and frictionless checkout.",

@@ -67,6 +67,49 @@ const menuItems: MenuItem[] = [
               { title: "Account Launch & Onboarding", link: "/services/ecommerce/flipkart/account-launch" },
             ],
           },
+          {
+            title: "Meesho",
+            link: "/services/ecommerce/meesho",
+            items: [
+              { title: "Meesho Account Scaling", link: "/services/ecommerce/meesho" },
+              { title: "Zero-Commission Cataloging", link: "/services/ecommerce/meesho" },
+              { title: "Dynamic Price Optimization", link: "/services/ecommerce/meesho" },
+            ],
+          },
+          {
+            title: "Blinkit",
+            link: "/services/ecommerce/blinkit",
+            items: [
+              { title: "Dark Store Inventory Allocation", link: "/services/ecommerce/blinkit" },
+              { title: "Quick-Commerce In-App Ads", link: "/services/ecommerce/blinkit" },
+              { title: "10-Min Brand Onboarding", link: "/services/ecommerce/blinkit" },
+            ],
+          },
+          {
+            title: "Myntra",
+            link: "/services/ecommerce/myntra",
+            items: [
+              { title: "Myntra Brand Store Creation", link: "/services/ecommerce/myntra" },
+              { title: "Fashion Catalog & Taxonomy", link: "/services/ecommerce/myntra" },
+              { title: "EORS Mega Sale Strategy", link: "/services/ecommerce/myntra" },
+            ],
+          },
+          {
+            title: "Etsy",
+            link: "/services/ecommerce/etsy",
+            items: [
+              { title: "Global Shop Launch & Setup", link: "/services/ecommerce/etsy" },
+              { title: "Etsy SEO & 13-Tag Indexing", link: "/services/ecommerce/etsy" },
+              { title: "Cross-Border Star Seller Scale", link: "/services/ecommerce/etsy" },
+            ],
+          },
+          {
+            title: "Other Marketplaces",
+            link: "/contact",
+            items: [
+              { title: "Custom Marketplace Inquiry ↗", link: "/contact" },
+            ],
+          },
         ],
       },
       {
@@ -377,11 +420,23 @@ export default function Navbar() {
                       <a href="/services/ecommerce/amazon" className={styles.mobileSubLink} onClick={(e) => handleMobileNav(e, "/services/ecommerce/amazon")}>
                         Amazon Complete Suite
                       </a>
-                      <a href="/services/ecommerce/amazon/advertising" className={styles.mobileSubLink} onClick={(e) => handleMobileNav(e, "/services/ecommerce/amazon/advertising")}>
-                        Amazon PPC Advertising
-                      </a>
                       <a href="/services/ecommerce/flipkart" className={styles.mobileSubLink} onClick={(e) => handleMobileNav(e, "/services/ecommerce/flipkart")}>
                         Flipkart Management
+                      </a>
+                      <a href="/services/ecommerce/meesho" className={styles.mobileSubLink} onClick={(e) => handleMobileNav(e, "/services/ecommerce/meesho")}>
+                        Meesho Marketplace
+                      </a>
+                      <a href="/services/ecommerce/blinkit" className={styles.mobileSubLink} onClick={(e) => handleMobileNav(e, "/services/ecommerce/blinkit")}>
+                        Blinkit Quick-Commerce
+                      </a>
+                      <a href="/services/ecommerce/myntra" className={styles.mobileSubLink} onClick={(e) => handleMobileNav(e, "/services/ecommerce/myntra")}>
+                        Myntra Fashion Growth
+                      </a>
+                      <a href="/services/ecommerce/etsy" className={styles.mobileSubLink} onClick={(e) => handleMobileNav(e, "/services/ecommerce/etsy")}>
+                        Etsy Global Shop
+                      </a>
+                      <a href="/contact" className={styles.mobileSubLink} style={{ color: "#ff5e5e" }} onClick={(e) => handleMobileNav(e, "/contact")}>
+                        Other Marketplaces ↗
                       </a>
                     </div>
                   )}

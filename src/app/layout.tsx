@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/logo.png" type="image/png" />
         <link rel="shortcut icon" href="/logo.png" type="image/png" />
