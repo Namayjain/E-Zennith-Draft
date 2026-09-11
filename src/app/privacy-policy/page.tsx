@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className={styles.contactBlock}>
               <strong>E Zennith Agency</strong><br />
-              Email: <a href="mailto:Team.ezennith@gmail.com">Team.ezennith@gmail.com</a><br />
+              Email: <a href="mailto:info@ezennith.com">info@ezennith.com</a><br />
               Phone: <a href="tel:+918797787778">+91 8797787778</a>
             </p>
           </section>

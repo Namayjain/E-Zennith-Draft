@@ -32,9 +32,9 @@ export default function Footer() {
                 <Phone size={15} />
                 <span>+91 8797787778</span>
               </a>
-              <a href="mailto:Team.ezennith@gmail.com" className={styles.contactItem}>
+              <a href="mailto:info@ezennith.com" className={styles.contactItem}>
                 <Mail size={15} />
-                <span>Team.ezennith@gmail.com</span>
+                <span>info@ezennith.com</span>
               </a>
               <a href="https://wa.me/918797787778" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                 <MessageCircle size={15} />

@@ -41,8 +41,8 @@ export default function ContactPage() {
               </div>
               <div className={styles.channelText}>
                 <span className={styles.channelLabel}>Official Inquiries</span>
-                <a href="mailto:Team.ezennith@gmail.com" className={styles.channelValue}>
-                  Team.ezennith@gmail.com
+                <a href="mailto:info@ezennith.com" className={styles.channelValue}>
+                  info@ezennith.com
                 </a>
               </div>
             </div>

@@ -32,11 +32,11 @@ export default function CTA() {
               <span>+91 8797787778</span>
             </a>
 
-            <a href="mailto:Team.ezennith@gmail.com" className={styles.contactItem}>
+            <a href="mailto:info@ezennith.com" className={styles.contactItem}>
               <div className={styles.iconCircle}>
                 <Mail size={16} />
               </div>
-              <span>Team.ezennith@gmail.com</span>
+              <span>info@ezennith.com</span>
             </a>
           </div>
 
