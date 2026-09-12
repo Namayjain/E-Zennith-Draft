@@ -12,11 +12,10 @@ export default function robots(): MetadataRoute.Robots {
           "/admin",
           "/admin/",
           "/api/",
-          "/_next/",
         ],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
   };
 }
+
